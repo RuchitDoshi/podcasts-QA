@@ -1,0 +1,369 @@
+episodes:
+- id: 498_anthony_kaldellis_roman_empire_byzan
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_anthony_kaldellis.mp3
+  title: '#498 – Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires'
+  guest: Anthony Kaldellis
+  date: '2026-06-30'
+  description: Anthony Kaldellis is a historian of the Roman Empire and author of “The New Roman Empire”,
+    a comprehensive history of the Byzantine Empire (Eastern Roman Empire).
+  tags:
+  - history
+  - politics
+  - war
+  - philosophy
+- id: 497_biggest_mysteries_in_physics_antimat
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_don_lincoln.mp3
+  title: '#497 – Biggest Mysteries in Physics: Antimatter, Dark Energy & ToE – Don Lincoln'
+  guest: Don Lincoln
+  date: '2026-05-29'
+  description: Don Lincoln is a particle physicist at Fermilab who has spent decades working at the frontiers
+    of high energy physics.
+  tags:
+  - physics
+  - particle_physics
+  - high_energy_physics
+- id: 496_ffmpeg_the_incredible_technology_beh
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_ffmpeg.mp3
+  title: '#496 – FFmpeg: The Incredible Technology Behind Video on the Internet'
+  guest: Jean-Baptiste Kempf, Kieran Kunhya
+  date: '2026-05-06'
+  description: Jean-Baptiste Kempf is lead developer of VLC and president of VideoLAN. Kieran Kunhya is
+    a longtime FFmpeg contributor, codec engineer, and the person behind the now-infamous FFmpeg account
+    on X.
+  tags:
+  - software_engineering
+  - video
+  - technology
+  - ffmpeg
+- id: 495_vikings_ragnar_berserkers_valhalla_t
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_lars_brownworth.mp3
+  title: '#495 – Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age'
+  guest: Lars Brownworth
+  date: '2026-04-09'
+  description: Lars Brownworth is a historian, teacher, podcaster, and author specializing in Viking history,
+    medieval Europe, and the Byzantine Empire.
+  tags:
+  - history
+  - war
+  - politics
+- id: 494_jensen_huang_nvidia_the_4_trillion_c
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_jensen_huang.mp3
+  title: '#494 – Jensen Huang: NVIDIA – The $4 Trillion Company & the AI Revolution'
+  guest: Jensen Huang
+  date: '2026-03-23'
+  description: Jensen Huang is the co-founder and CEO of NVIDIA, the world’s most valuable company and
+    the engine powering the AI computing revolution.
+  tags:
+  - ai
+  - entrepreneurship
+  - software_engineering
+- id: 493_jeff_kaplan_world_of_warcraft_overwa
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_jeff_kaplan.mp3
+  title: '#493 – Jeff Kaplan: World of Warcraft, Overwatch, Blizzard, and Future of Gaming'
+  guest: Jeff Kaplan
+  date: '2026-03-11'
+  description: Jeff Kaplan is a legendary Blizzard game designer of World of Warcraft and Overwatch, now
+    preparing to launch a new game, The Legend of California, from his new studio Kintsugiyama – available
+    to wishlist on Steam today, with alpha later in March.
+  tags:
+  - game_design
+  - software_engineering
+  - gaming
+  - entrepreneurship
+- id: 492_rick_beato_greatest_guitarists_of_al
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_rick_beato.mp3
+  title: '#492 – Rick Beato: Greatest Guitarists of All Time, History & Future of Music'
+  guest: Rick Beato
+  date: '2026-03-01'
+  description: Rick Beato is a music educator, interviewer, producer, songwriter, and a true multi-instrument
+    musician, playing guitar, bass, cello & piano. His incredible YouTube channel celebrates great musicians
+    & musical ideas, and helps millions of people fall in love with great music all over again.
+  tags:
+  - music
+  - history
+  - entrepreneurship
+- id: 491_openclaw_the_viral_ai_agent_that_bro
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_peter_steinberger.mp3
+  title: '#491 – OpenClaw: The Viral AI Agent that Broke the Internet – Peter Steinberger'
+  guest: Peter Steinberger
+  date: '2026-02-12'
+  description: Peter Steinberger is the creator of OpenClaw, an open-source AI agent framework that’s
+    the fastest-growing project in GitHub history.
+  tags:
+  - ai
+  - software_engineering
+  - machine_learning
+- id: 490_state_of_ai_in_2026_llms_coding_scal
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_ai_sota_2026.mp3
+  title: '#490 – State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI'
+  guest: Nathan Lambert, Sebastian Raschka
+  date: '2026-02-01'
+  description: Nathan Lambert and Sebastian Raschka are machine learning researchers, engineers, and educators.
+    Nathan is the post-training lead at the Allen Institute for AI (Ai2) and the author of The RLHF Book.
+    Sebastian Raschka is the author of Build a Large Language Model (From Scratch) and Build a Reasoning
+    Model (From Scratch).
+  tags:
+  - ai
+  - machine_learning
+  - software_engineering
+- id: 489_paul_rosolie_uncontacted_tribes_in_t
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_paul_rosolie_3.mp3
+  title: '#489 – Paul Rosolie: Uncontacted Tribes in the Amazon Jungle'
+  guest: Paul Rosolie
+  date: '2026-01-13'
+  description: Paul Rosolie is a naturalist, explorer, author of a new book titled Junglekeeper, and is
+    someone who has dedicated his life to protecting the Amazon rainforest.
+  tags:
+  - biology
+  - environment
+  - exploration
+- id: 488_infinity_paradoxes_that_broke_mathem
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_joel_david_hamkins.mp3
+  title: '#488 – Infinity, Paradoxes that Broke Mathematics, Gödel Incompleteness & the Multiverse – Joel
+    David Hamkins'
+  guest: Joel David Hamkins
+  date: '2025-12-31'
+  description: 'Joel David Hamkins is a mathematician and philosopher specializing in set theory, the
+    foundations of mathematics, and the nature of infinity, and he’s the #1 highest-rated user on MathOverflow.
+    He is also the author of several books, including Proof and the Art of Mathematics and Lectures on
+    the Philosophy of Mathematics. And he has a great blog called Infinitely More.'
+  tags:
+  - math
+  - philosophy
+  - infinity
+  - paradoxes
+- id: 487_irving_finkel_deciphering_secrets_of
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_irving_finkel.mp3
+  title: '#487 – Irving Finkel: Deciphering Secrets of Ancient Civilizations & Flood Myths'
+  guest: Irving Finkel
+  date: '2025-12-12'
+  description: Irving Finkel is a scholar of ancient languages and a longtime curator at the British Museum,
+    renowned for his expertise in Mesopotamian history and cuneiform writing. He specializes in reading
+    and interpreting cuneiform inscriptions, including tablets from Sumerian, Akkadian, Babylonian, and
+    Assyrian contexts. He became widely known for studying a tablet with a Mesopotamian flood story that
+    predates the biblical Noah narrative, which he presented in his book “The Ark Before Noah” and in
+    a docum
+  tags:
+  - history
+  - mesopotamian
+  - ancient_civilizations
+- id: 486_michael_levin_hidden_reality_of_alie
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_michael_levin_2.mp3
+  title: '#486 – Michael Levin: Hidden Reality of Alien Intelligence & Biological Life'
+  guest: Michael Levin
+  date: '2025-11-30'
+  description: Michael Levin is a biologist at Tufts University working on novel ways to understand and
+    control complex pattern formation in biological systems.
+  tags:
+  - biology
+  - space
+- id: 485_david_kirtley_nuclear_fusion_plasma_
+  url: https://media.blubrry.com/takeituneasy/ins.blubrry.com/takeituneasy/lex_ai_david_kirtley.mp3
+  title: '#485 – David Kirtley: Nuclear Fusion, Plasma Physics, and the Future of Energy'
+  guest: David Kirtley
+  date: '2025-11-17'
+  description: David Kirtley is a nuclear fusion engineer and CEO of Helion Energy, a company working
+    on building the world’s first commercial fusion power plant by 2028.
+  tags:
+  - physics
+  - energy
+  - nuclear_fusion
+  - engineering
+- id: 484_dan_houser_gta_red_dead_redemption_r
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_dan_houser.mp3
+  title: '#484 – Dan Houser: GTA, Red Dead Redemption, Rockstar, Absurd & Future of Gaming'
+  guest: Dan Houser
+  date: '2025-10-31'
+  description: Dan Houser is co-founder of Rockstar Games and is a legendary creative mind behind Grand
+    Theft Auto (GTA) and Red Dead Redemption series of video games.
+  tags:
+  - gaming
+  - entrepreneurship
+  - software_engineering
+  - art
+- id: 483_julia_shaw_criminal_psychology_of_mu
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_julia_shaw.mp3
+  title: '#483 – Julia Shaw: Criminal Psychology of Murder, Serial Killers, Memory & Sex'
+  guest: Julia Shaw
+  date: '2025-10-14'
+  description: Julia Shaw is a criminal psychologist and author who in her books explores human nature,
+    including psychopathy, violent crime, the psychology of evil, police interrogation, false memory manipulation,
+    deception detection, and human sexuality.
+  tags:
+  - psychology
+  - criminology
+  - memory
+  - sexuality
+- id: 482_pavel_durov_telegram_freedom_censors
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_pavel_durov.mp3
+  title: '#482 – Pavel Durov: Telegram, Freedom, Censorship, Money, Power & Human Nature'
+  guest: Pavel Durov
+  date: '2025-10-01'
+  description: Pavel Durov is the founder and CEO of Telegram.
+  tags:
+  - entrepreneurship
+  - software_engineering
+  - politics
+  - security
+- id: 481_norman_ohler_hitler_nazis_drugs_ww2_
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_norman_ohler.mp3
+  title: '#481 – Norman Ohler: Hitler, Nazis, Drugs, WW2, Blitzkrieg, LSD, MKUltra & CIA'
+  guest: Norman Ohler
+  date: '2025-09-19'
+  description: 'Norman Ohler is a historian and author of “Blitzed: Drugs in the Third Reich,” a book
+    that investigates the role of psychoactive drugs, particularly stimulants such as methamphetamine,
+    in the military history of World War II. It is a book that two legendary historians Ian Kershaw and
+    Antony Beevor give very high praise for its depth of research. Norman also wrote “Tripped: Nazi Germany,
+    the CIA, and the Dawn of the Psychedelic Age”, and he is working on a new book “Stoned Sapiens” looking
+    at the'
+  tags:
+  - history
+  - war
+  - politics
+- id: 480_dave_hone_t_rex_dinosaurs_extinction
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_dave_hone.mp3
+  title: '#480 – Dave Hone: T-Rex, Dinosaurs, Extinction, Evolution, and Jurassic Park'
+  guest: Dave Hone
+  date: '2025-09-04'
+  description: Dave Hone is a paleontologist, expert on dinosaurs, co-host of the Terrible Lizards podcast,
+    and author of numerous scientific papers and books on the behavior and ecology of dinosaurs. He lectures
+    at Queen Mary University of London on topics of Ecology, Zoology, Biology, and Evolution.
+  tags:
+  - biology
+  - evolution
+  - paleontology
+  - zoology
+- id: 479_dave_plummer_programming_autism_and_
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_dave_plummer.mp3
+  title: '#479 – Dave Plummer: Programming, Autism, and Old-School Microsoft Stories'
+  guest: Dave Plummer
+  date: '2025-08-29'
+  description: Dave Plummer is a programmer, former Microsoft software engineer (Windows 95, NT, XP),
+    creator of Task Manager, author of two books on autism, and host of the Dave’s Garage YouTube channel,
+    where he shares stories from his career, insights on software development, and deep dives into technology.
+  tags:
+  - software_engineering
+  - autism
+  - programming
+- id: 478_scott_horton_the_case_against_war_an
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_scott_horton.mp3
+  title: '#478 – Scott Horton: The Case Against War and the Military Industrial Complex'
+  guest: Scott Horton
+  date: '2025-08-24'
+  description: Scott Horton is the director of the Libertarian Institute, editorial director of Antiwar.com,
+    host of The Scott Horton Show, co-host of Provoked, and for the past three decades a staunch critic
+    of U.S. military interventionism.
+  tags:
+  - politics
+  - war
+  - economics
+- id: 477_keyu_jin_china_s_economy_tariffs_tra
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_keyu_jin.mp3
+  title: '#477 – Keyu Jin: China’s Economy, Tariffs, Trade, Trump, Communism & Capitalism'
+  guest: Keyu Jin
+  date: '2025-08-13'
+  description: 'Keyu Jin is an economist specializing in China’s economy, international macroeconomics,
+    global trade imbalances, and financial policy. She is the author of The New China Playbook: Beyond
+    Socialism and Capitalism.'
+  tags:
+  - economics
+  - politics
+  - china
+  - trade
+- id: 476_jack_weatherford_genghis_khan_and_th
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_jack_weatherford.mp3
+  title: '#476 – Jack Weatherford: Genghis Khan and the Mongol Empire'
+  guest: Jack Weatherford
+  date: '2025-08-01'
+  description: Jack Weatherford is an anthropologist and historian specializing in Genghis Khan and the
+    Mongol Empire.
+  tags:
+  - history
+  - war
+  - politics
+- id: 475_demis_hassabis_future_of_ai_simulati
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_demis_hassabis_2.mp3
+  title: '#475 – Demis Hassabis: Future of AI, Simulating Reality, Physics and Video Games'
+  guest: Demis Hassabis
+  date: '2025-07-23'
+  description: Demis Hassabis is the CEO of Google DeepMind and Nobel Prize winner for his groundbreaking
+    work in protein structure prediction using AI.
+  tags:
+  - ai
+  - physics
+  - machine_learning
+- id: 474_dhh_future_of_programming_ai_ruby_on
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_dhh_david_heinemeier_hansson.mp3
+  title: '#474 – DHH: Future of Programming, AI, Ruby on Rails, Productivity & Parenting'
+  guest: David Heinemeier Hansson
+  date: '2025-07-12'
+  description: 'David Heinemeier Hansson (aka DHH) is a legendary programmer, creator of Ruby on Rails,
+    co-owner & CTO of 37signals that created Basecamp, HEY, & ONCE, and is a NYT-best-selling author (with
+    Jason Fried) of 4 books: REWORK, REMOTE, Getting Real, and It Doesn’t Have To Be Crazy At Work. He
+    is also a race car driver, including a class-winning performance at the 24 hour Le Mans race.'
+  tags:
+  - programming
+  - ai
+  - software_engineering
+  - productivity
+- id: 473_iran_war_debate_nuclear_weapons_trum
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_iran_israel_debate.mp3
+  title: '#473 – Iran War Debate: Nuclear Weapons, Trump, Peace, Power & the Middle East'
+  guest: Scott Horton, Mark Dubowitz
+  date: '2025-06-26'
+  description: Debate on Iran war between Scott Horton and Mark Dubowitz. Scott Horton is the author and
+    director of the Libertarian Institute, editorial director of Antiwar.com, host of The Scott Horton
+    Show, and for the past three decades, a staunch critic of U.S. foreign policy and military interventionism.
+    Mark Dubowitz is the chief executive of the Foundation for Defense of Democracies, host of the Iran
+    Breakdown podcast, and a leading expert on Iran and its nuclear program for over 20 years. This debate
+  tags:
+  - politics
+  - war
+  - economics
+- id: 472_terence_tao_hardest_problems_in_math
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_terence_tao.mp3
+  title: '#472 – Terence Tao: Hardest Problems in Mathematics, Physics & the Future of AI'
+  guest: Terence Tao
+  date: '2025-06-15'
+  description: Terence Tao is widely considered to be one of the greatest mathematicians in history. He
+    won the Fields Medal and the Breakthrough Prize in Mathematics, and has contributed to a wide range
+    of fields from fluid dynamics with Navier-Stokes equations to mathematical physics & quantum mechanics,
+    prime numbers & analytics number theory, harmonic analysis, compressed sensing, random matrix theory,
+    combinatorics, and progress on many of the hardest problems in the history of mathematics.
+  tags:
+  - math
+  - physics
+  - ai
+- id: 471_sundar_pichai_ceo_of_google_and_alph
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_sundar_pichai.mp3
+  title: '#471 – Sundar Pichai: CEO of Google and Alphabet'
+  guest: Sundar Pichai
+  date: '2025-06-05'
+  description: Sundar Pichai is CEO of Google and Alphabet.
+  tags:
+  - software_engineering
+  - entrepreneurship
+  - ai
+- id: 470_james_holland_world_war_ii_hitler_ch
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_james_holland.mp3
+  title: '#470 – James Holland: World War II, Hitler, Churchill, Stalin & Biggest Battles'
+  guest: James Holland
+  date: '2025-05-24'
+  description: 'James Holland is a historian specializing in World War II. He hosts a podcast called WW2
+    Pod: We Have Ways of Making You Talk.'
+  tags:
+  - history
+  - war
+  - politics
+- id: 469_oliver_anthony_country_music_blue_co
+  url: https://media.blubrry.com/takeituneasy/content.blubrry.com/takeituneasy/lex_ai_oliver_anthony.mp3
+  title: '#469 – Oliver Anthony: Country Music, Blue-Collar America, Fame, Money, and Pain'
+  guest: Oliver Anthony
+  date: '2025-05-20'
+  description: Oliver Anthony is singer-songwriter who first gained worldwide fame with his viral hit
+    Rich Men North of Richmond. He became a voice for many who are voiceless, with many of his songs speaking
+    to the struggle of the working class in modern American life.
+  tags:
+  - music
+  - politics
+  - economics

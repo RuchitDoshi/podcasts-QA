@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/raw/
+data/transcripts/
+data/chunks/
+chroma_db/
+*.wav
+*.mp3
+*.m4a
+.DS_Store
