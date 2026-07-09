@@ -40,7 +40,7 @@ SYSTEM_PROMPT = (
     "You extract structured metadata for podcast episodes from their title and "
     "description. Return strict JSON with exactly two keys:\n"
     '  "guest": a string with the guest name(s), comma-separated if there are '
-    "multiple guests, or \"unknown\" if the description does not name one\n"
+    'multiple guests, or "unknown" if the description does not name one\n'
     '  "tags": an array of 2-5 lowercase snake_case topic tags\n'
     "Prefer tags from this vocabulary when they fit, but add a new one if none "
     "apply: " + TAG_VOCAB_HINT + "\n"
@@ -49,13 +49,14 @@ SYSTEM_PROMPT = (
 
 
 def load_episodes(config_path: Path) -> dict:
-    with open(config_path, "r") as f:
+    with open(config_path) as f:
         return yaml.safe_load(f)
 
 
 def get_client():
     try:
         from dotenv import load_dotenv
+
         load_dotenv()
     except ImportError:
         pass
@@ -114,13 +115,22 @@ def enrich_episode(client, episode: dict, model: str) -> dict | None:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fix guest names and generate tags using title + description")
+    parser = argparse.ArgumentParser(
+        description="Fix guest names and generate tags using title + description"
+    )
     parser.add_argument("--config", type=Path, default=Path("config/episodes.yaml"))
     parser.add_argument("--model", type=str, default="llama-3.3-70b-versatile")
-    parser.add_argument("--overwrite", action="store_true",
-                         help="Re-enrich episodes even if they already have a guest and tags")
-    parser.add_argument("--sleep", type=float, default=1.0,
-                         help="Seconds to sleep between calls, stay under free-tier rate limits")
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Re-enrich episodes even if they already have a guest and tags",
+    )
+    parser.add_argument(
+        "--sleep",
+        type=float,
+        default=1.0,
+        help="Seconds to sleep between calls, stay under free-tier rate limits",
+    )
     args = parser.parse_args()
 
     data = load_episodes(args.config)
@@ -135,8 +145,12 @@ def main():
     for episode in episodes:
         already_done = episode.get("tags") and episode.get("guest") not in (None, "", "unknown")
         if already_done and not args.overwrite:
-            log.info("Skipping %s — already enriched (guest=%s, tags=%s)",
-                      episode["id"], episode["guest"], episode["tags"])
+            log.info(
+                "Skipping %s — already enriched (guest=%s, tags=%s)",
+                episode["id"],
+                episode["guest"],
+                episode["tags"],
+            )
             continue
 
         log.info("Enriching %s: %s", episode["id"], episode.get("title", ""))

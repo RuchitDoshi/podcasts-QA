@@ -45,8 +45,8 @@ def clean_description(raw_html: str, max_len: int = 500) -> str:
         return ""
 
     text = html.unescape(raw_html)
-    text = re.sub(r"<br\s*/?>", "\n", text)          # line breaks before stripping tags
-    text = re.sub(r"<[^>]+>", "", text)               # strip remaining HTML tags
+    text = re.sub(r"<br\s*/?>", "\n", text)  # line breaks before stripping tags
+    text = re.sub(r"<[^>]+>", "", text)  # strip remaining HTML tags
     text = re.sub(r"[ \t]+", " ", text).strip()
 
     cut_at = len(text)
@@ -73,13 +73,20 @@ def guest_from_title(title: str) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build episodes.yaml from the Lex Fridman RSS feed")
+    parser = argparse.ArgumentParser(
+        description="Build episodes.yaml from the Lex Fridman RSS feed"
+    )
     parser.add_argument("--feed-url", type=str, default=FEED_URL)
     parser.add_argument("--limit", type=int, default=30, help="Max number of episodes to include")
-    parser.add_argument("--since", type=str, default=None, help="Only include episodes after this date (YYYY-MM-DD)")
+    parser.add_argument(
+        "--since", type=str, default=None, help="Only include episodes after this date (YYYY-MM-DD)"
+    )
     parser.add_argument("--output", type=Path, default=Path("config/episodes.yaml"))
-    parser.add_argument("--tags-from-title", action="store_true",
-                         help="Naively derive tags from title keywords (rough — expect to hand-edit after)")
+    parser.add_argument(
+        "--tags-from-title",
+        action="store_true",
+        help="Naively derive tags from title keywords (rough — expect to hand-edit after)",
+    )
     args = parser.parse_args()
 
     try:
@@ -132,8 +139,20 @@ def main():
         if args.tags_from_title:
             # rough keyword pass -- meant as a starting point, not final tags
             lowered = title.lower()
-            for kw in ["ai", "physics", "history", "space", "robot", "brain", "philosophy",
-                       "math", "biology", "economics", "war", "music"]:
+            for kw in [
+                "ai",
+                "physics",
+                "history",
+                "space",
+                "robot",
+                "brain",
+                "philosophy",
+                "math",
+                "biology",
+                "economics",
+                "war",
+                "music",
+            ]:
                 if kw in lowered:
                     episode["tags"].append(kw)
 
@@ -151,9 +170,11 @@ def main():
         yaml.dump({"episodes": episodes}, f, sort_keys=False, allow_unicode=True, width=100)
 
     log.info("Wrote %d episodes to %s", len(episodes), args.output)
-    log.info("Guest names are a rough title-parse fallback -- run "
-              "data/enrich_episodes.py to fix guests and generate tags from "
-              "the episode descriptions before running data/download.py.")
+    log.info(
+        "Guest names are a rough title-parse fallback -- run "
+        "data/enrich_episodes.py to fix guests and generate tags from "
+        "the episode descriptions before running data/download.py."
+    )
 
 
 if __name__ == "__main__":

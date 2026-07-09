@@ -2,20 +2,37 @@
 
 whisper:
   model_size: "large-v3"     # use "base" or "small" for a fast local smoke test
-  device: "cpu"              # "cpu" locally, "cuda" on Colab T4
-  compute_type: "int8"       # int8 for CPU, float16 for GPU
+  device: "cuda"              # "cpu" locally, "cuda" on Colab T4
+  compute_type: "float16"       # int8 for CPU, float16 for GPU
   language: "en"
   vad_filter: true           # trims silence before transcription
+  beam_size: 5                # lower to 1-2 for very long (3hr+) episodes if you
+                               # hit OOM kills on Colab's free-tier system RAM cap
+  max_chunk_seconds: 10800      # split audio longer than this (90 min) into chunks
+                               # before transcribing, caps peak memory regardless
+                               # of total episode length. Set to null to disable.
 
 audio:
   sample_rate: 16000
   channels: 1                # mono
 
+diarization:
+  model: "pyannote/speaker-diarization-community-1"
+  device: "cuda"              # "cuda" on the Linux GPU machine -- much faster there
+  min_speakers: null          # set if you know the exact count for a given show format
+  max_speakers: null
+
+chunking:
+  target_seconds: 60          # aim for ~60s of speech per chunk
+  max_seconds: 120            # hard cap -- force a boundary even mid speaker-turn
+  overlap_seconds: 5          # small overlap between consecutive chunks, helps
+                               # retrieval when an answer straddles a chunk boundary
+
 paths:
-  raw_dir: "data/raw"
-  transcripts_dir: "data/transcripts"
-  chunks_dir: "data/chunks"
-  chroma_dir: "chroma_db"
+  raw_dir: "/home/ruchit/ruchit-personal/datasets/podcast-audio-wavs"
+  transcripts_dir: "/home/ruchit/ruchit-personal/datasets/podcast-audio-transcripts"
+  chunks_dir: "/home/ruchit/ruchit-personal/datasets/podcast-audio-chunks"
+  chroma_dir: "/home/ruchit/ruchit-personal/datasets/chroma_db"
 
 embeddings:
   model_name: "BAAI/bge-small-en-v1.5"

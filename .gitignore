@@ -10,3 +10,4 @@ chroma_db/
 *.mp3
 *.m4a
 .DS_Store
+*.ruff_cache

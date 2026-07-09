@@ -21,7 +21,7 @@ log = logging.getLogger("download")
 
 
 def load_episodes(config_path: Path) -> list[dict]:
-    with open(config_path, "r") as f:
+    with open(config_path) as f:
         cfg = yaml.safe_load(f)
     episodes = cfg.get("episodes", [])
     if not episodes:
@@ -45,7 +45,9 @@ def download_episode(episode: dict, raw_dir: Path, sample_rate: int = 16000) -> 
         return out_path
 
     if "REPLACE_ME" in url:
-        log.warning("Episode %s still has a placeholder URL — edit config/episodes.yaml", episode_id)
+        log.warning(
+            "Episode %s still has a placeholder URL — edit config/episodes.yaml", episode_id
+        )
         return None
 
     ydl_opts = {
@@ -58,8 +60,10 @@ def download_episode(episode: dict, raw_dir: Path, sample_rate: int = 16000) -> 
             }
         ],
         "postprocessor_args": [
-            "-ar", str(sample_rate),
-            "-ac", "1",
+            "-ar",
+            str(sample_rate),
+            "-ac",
+            "1",
         ],
         "quiet": False,
         "noprogress": False,
@@ -84,7 +88,7 @@ def download_episode(episode: dict, raw_dir: Path, sample_rate: int = 16000) -> 
 def main():
     parser = argparse.ArgumentParser(description="Download episode audio via yt-dlp")
     parser.add_argument("--config", type=Path, default=Path("config/episodes.yaml"))
-    parser.add_argument("--output", type=Path, default=Path("/Users/shakshihimmatramka/Desktop/ruchit-projects/datasets/raw"))
+    parser.add_argument("--output", type=Path, default=Path("datasets/raw"))
     parser.add_argument("--episode", type=str, default=None, help="Only download this episode id")
     args = parser.parse_args()
 

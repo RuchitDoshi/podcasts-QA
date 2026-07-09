@@ -1,0 +1,23 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"   # closest ruff-supported target; fine for 3.14 syntax used here
+exclude = ["notebooks/"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes (unused imports, undefined names, etc.)
+    "I",    # isort (import sorting)
+    "W",    # pycodestyle warnings
+    "UP",   # pyupgrade (modern syntax)
+    "B",    # flake8-bugbear (common bug patterns)
+]
+ignore = [
+    "E501",  # line length is handled by the formatter, not the linter
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["data", "ingest", "retrieve", "agent", "eval", "serve"]
+
+[tool.ruff.format]
+quote-style = "double"

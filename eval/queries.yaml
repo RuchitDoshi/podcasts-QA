@@ -1,0 +1,75 @@
+# Retrieval eval query set. Each query has an expected_episode_id -- a
+# practical, checkable proxy for relevance without needing full manual
+# chunk-level relevance annotation: since each query is written to be
+# clearly about one specific episode's content, "does the top-k actually
+# come from that episode" is a reasonable stand-in for "was retrieval
+# correct," even though it's coarser than true chunk-level relevance.
+#
+# type: "clean" -- realistic, on-topic question, no adversarial intent
+#       "adversarial" -- deliberately stress-tests a known weak point
+#         (ad-vocabulary overlap, cross-episode ambiguity, vague phrasing)
+#
+# Fill in real episode_ids from your config/episodes.yaml -- the ids below
+# are placeholders matching the episodes referenced earlier in this project.
+
+queries:
+  - query: "What does Kaldellis say about the fall of Constantinople?"
+    expected_episode_id: "498_anthony_kaldellis_roman_empire_byzan"
+    type: "clean"
+
+  - query: "What does Terence Tao say about using AI to solve hard math problems?"
+    expected_episode_id: "472_terence_tao_hardest_problems_in_math"
+    type: "clean"
+
+  - query: "What does Pavel Durov say about Telegram and government censorship?"
+    expected_episode_id: "482_pavel_durov_telegram_freedom_censors"
+    type: "clean"
+
+  - query: "What does Jensen Huang say about Nvidia becoming a 4 trillion dollar company?"
+    expected_episode_id: "494_jensen_huang_nvidia_the_4_trillion_c"
+    type: "clean"
+
+  - query: "What does Dan Houser say about writing Red Dead Redemption?"
+    expected_episode_id: "484_dan_houser_gta_red_dead_redemption_r"
+    type: "clean"
+
+  - query: "What does Dave Plummer say about programming and autism?"
+    expected_episode_id: "479_dave_plummer_programming_autism_and_"
+    type: "clean"
+
+  - query: "What is discussed about T-Rex and dinosaur extinction?"
+    expected_episode_id: "480_dave_hone_t_rex_dinosaurs_extinction"
+    type: "clean"
+
+  - query: "What does the conversation say about nuclear fusion and plasma confinement?"
+    expected_episode_id: "485_david_kirtley_nuclear_fusion_plasma_"
+    type: "clean"
+
+  # Adversarial: shares heavy vocabulary with sponsor-read language
+  # (this is the exact query that surfaced the ad-leakage issue earlier)
+  - query: "what companies has Lex mentioned recently"
+    expected_episode_id: null # no single correct episode -- this query has no good answer
+    type: "adversarial"
+
+  # Adversarial: vague/no real anchor, should ideally have a high null rate
+  # rather than confidently returning something wrong
+  - query: "what is the best thing that was said in any episode"
+    expected_episode_id: null
+    type: "adversarial"
+
+  # Adversarial: cross-episode -- genuinely spans two guests, no single
+  # "correct" episode_id, useful for spotting how retrieval behaves rather
+  # than scoring pass/fail
+  - query: "How do Jensen Huang and Pavel Durov think differently about AI and censorship?"
+    expected_episode_id: null
+    type: "adversarial"
+
+  # Adversarial: rare/technical term of uncertain provenance -- NOT confirmed
+  # to actually appear in the transcript (invented as a plausible topic when
+  # writing this query set, never verified). Kept unscored on purpose: this
+  # is a real "does retrieval know when it has no good answer" test case,
+  # not a term-matching test. If BM25 shows a strong absolute score with
+  # the term actually visible in result text, promote back to scored.
+  - query: "xenodochium Byzantine hospice"
+    expected_episode_id: null
+    type: "adversarial"

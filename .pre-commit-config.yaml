@@ -1,0 +1,21 @@
+repos:
+  # Ruff: lint + import sorting + formatting in one fast tool (Rust-based,
+  # replaces black + isort + flake8 for this project's needs)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: [--fix]          # auto-fixes lint issues + sorts imports
+      - id: ruff-format         # black-compatible formatting
+
+  # General hygiene checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=5000]    # catches accidentally-committed audio/model files
+      - id: check-merge-conflict
+      - id: mixed-line-ending

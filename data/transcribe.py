@@ -35,13 +35,17 @@ import time
 from pathlib import Path
 
 import yaml
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger("transcribe")
 
 
 def load_settings(config_path: Path) -> dict:
-    with open(config_path, "r") as f:
+    with open(config_path) as f:
         return yaml.safe_load(f)
 
 
@@ -55,7 +59,9 @@ def get_model(settings: dict):
     w = settings["whisper"]
     log.info(
         "Loading faster-whisper model=%s device=%s compute_type=%s",
-        w["model_size"], w["device"], w["compute_type"],
+        w["model_size"],
+        w["device"],
+        w["compute_type"],
     )
     return WhisperModel(w["model_size"], device=w["device"], compute_type=w["compute_type"])
 
@@ -73,17 +79,22 @@ def transcribe_file(model, audio_path: Path, settings: dict) -> dict:
 
     segments = []
     for seg in segments_iter:
-        segments.append({
-            "start": round(seg.start, 2),
-            "end": round(seg.end, 2),
-            "speaker": None,  # filled in by a separate diarization pass
-            "text": seg.text.strip(),
-        })
+        segments.append(
+            {
+                "start": round(seg.start, 2),
+                "end": round(seg.end, 2),
+                "speaker": None,  # filled in by a separate diarization pass
+                "text": seg.text.strip(),
+            }
+        )
 
     elapsed = time.time() - start_time
     log.info(
         "Transcribed %s in %.1fs (%d segments, detected language=%s)",
-        audio_path.name, elapsed, len(segments), info.language,
+        audio_path.name,
+        elapsed,
+        len(segments),
+        info.language,
     )
 
     return {
@@ -100,7 +111,9 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("data/transcripts"))
     parser.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
     parser.add_argument("--episode", type=str, default=None, help="Only transcribe this episode id")
-    parser.add_argument("--overwrite", action="store_true", help="Re-transcribe even if output exists")
+    parser.add_argument(
+        "--overwrite", action="store_true", help="Re-transcribe even if output exists"
+    )
     args = parser.parse_args()
 
     args.output.mkdir(parents=True, exist_ok=True)
@@ -140,7 +153,13 @@ def main():
         log.info("Wrote %s", out_path)
         ok += 1
 
-    log.info("Done: %d transcribed, %d skipped, %d failed (of %d total)", ok, skipped, failed, len(audio_files))
+    log.info(
+        "Done: %d transcribed, %d skipped, %d failed (of %d total)",
+        ok,
+        skipped,
+        failed,
+        len(audio_files),
+    )
 
 
 if __name__ == "__main__":
