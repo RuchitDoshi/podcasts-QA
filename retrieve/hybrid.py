@@ -88,8 +88,19 @@ def minmax_normalize(scores: list[float]) -> list[float]:
     return [(s - lo) / (hi - lo) for s in scores]
 
 
-def dense_search(collection, embedder, query: str, n_results: int) -> dict[str, float]:
-    """Returns {chunk_id: normalized_score}, higher is better."""
+def dense_search(
+    collection, embedder, query: str, n_results: int
+) -> tuple[dict[str, float], dict[str, float]]:
+    """Returns ({chunk_id: normalized_score}, {chunk_id: raw_cosine_similarity}).
+
+    The raw similarity is kept separate from the normalized one on purpose:
+    min-max normalization is relative to the candidate pool, so it always
+    stretches the best-of-the-pool result toward 1.0 even when every
+    candidate is a poor match -- it cannot be used to detect "nothing here
+    is actually relevant." Raw cosine similarity is the only one of the two
+    that carries meaning in an absolute sense, so it's what confidence
+    gating (agent/tools.py) should threshold against, not the fused score.
+    """
     query_emb = embedder.encode([query], normalize_embeddings=True).tolist()
     results = collection.query(query_embeddings=query_emb, n_results=n_results)
 
@@ -99,7 +110,8 @@ def dense_search(collection, embedder, query: str, n_results: int) -> dict[str, 
     # convert distance -> similarity, then normalize so higher is always better
     similarities = [1 - d for d in distances]
     normalized = minmax_normalize(similarities)
-    return dict(zip(ids, normalized, strict=True))
+    raw = dict(zip(ids, similarities, strict=True))
+    return dict(zip(ids, normalized, strict=True)), raw
 
 
 def bm25_search(bm25, corpus: list[dict], query: str, n_results: int) -> dict[str, float]:
@@ -132,7 +144,7 @@ def hybrid_search(
     # enough overlap/signal to work with before truncating to top_k.
     pool_size = max(top_k * 4, 20)
 
-    dense_scores = dense_search(collection, embedder, query, pool_size)
+    dense_scores, dense_raw = dense_search(collection, embedder, query, pool_size)
     sparse_scores = bm25_search(bm25, corpus, query, pool_size)
 
     all_ids = set(dense_scores) | set(sparse_scores)
@@ -154,6 +166,7 @@ def hybrid_search(
                 "score": final_score,
                 "dense_score": d_score,
                 "bm25_score": s_score,
+                "raw_dense_similarity": dense_raw.get(chunk_id, 0.0),
                 "text": record["text"],
                 "episode_id": record["episode_id"],
                 "start": record["start"],

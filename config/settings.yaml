@@ -42,6 +42,12 @@ retrieval:
   top_k: 8
   dense_weight: 0.6
   bm25_weight: 0.4
+  min_score_threshold: 0.15  # applied to RAW dense cosine similarity, not the
+                              # fused score (fused/normalized scores are pool-
+                              # relative and can't signal "nothing is relevant").
+                              # bge-small often has a nonzero baseline similarity
+                              # even for unrelated text -- treat 0.15 as a starting
+                              # point and tune against eval/eval_retrieval.py
 
 llm:
   answer_model: "llama-3.3-70b-versatile"   # via Groq
