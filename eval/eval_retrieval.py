@@ -40,6 +40,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from retrieve.hybrid import (  # noqa: E402
     build_bm25,
     get_collection,
+    get_cross_encoder,
     get_embedder,
     hybrid_search,
     load_corpus,
@@ -76,11 +77,22 @@ def evaluate_query(query_spec: dict, results: list[dict]) -> dict:
         precision_at_k = matching / len(results) if results else 0.0
         null_rate = matching == 0
 
+        # Reciprocal rank: 1/(rank of first correct-episode result), 0 if none
+        # in top-k. Generalizes hit@1 -- hit@1 is really just "was RR == 1.0",
+        # so this is free to compute from data we already have (the ranked
+        # results list), no new retrieval calls or labels needed.
+        reciprocal_rank = 0.0
+        for rank, r in enumerate(results, start=1):
+            if r["episode_id"] == expected:
+                reciprocal_rank = 1.0 / rank
+                break
+
         metrics.update(
             {
                 "hit_at_1": hit_at_1,
                 "precision_at_k": round(precision_at_k, 3),
                 "retrieval_null": null_rate,
+                "reciprocal_rank": round(reciprocal_rank, 3),
             }
         )
 
@@ -99,7 +111,8 @@ def print_report(all_metrics: list[dict]):
         print(f"[{status}] {m['query']}")
         print(
             f"    hit@1={m['hit_at_1']}  precision@k={m['precision_at_k']:.2f}  "
-            f"null={m['retrieval_null']}  ad_rate={m['ad_rate']:.2f}  type={m['type']}"
+            f"RR={m['reciprocal_rank']:.2f}  null={m['retrieval_null']}  "
+            f"ad_rate={m['ad_rate']:.2f}  type={m['type']}"
         )
 
     if scored:
@@ -107,9 +120,11 @@ def print_report(all_metrics: list[dict]):
         avg_precision = sum(m["precision_at_k"] for m in scored) / len(scored)
         null_rate = sum(m["retrieval_null"] for m in scored) / len(scored)
         avg_ad_rate = sum(m["ad_rate"] for m in scored) / len(scored)
+        mrr = sum(m["reciprocal_rank"] for m in scored) / len(scored)
         print("\n--- Aggregate (scored queries) ---")
         print(f"hit@1 rate:        {hit_rate:.1%}")
         print(f"avg precision@k:   {avg_precision:.1%}")
+        print(f"MRR:               {mrr:.3f}")
         print(f"retrieval null rate: {null_rate:.1%}")
         print(f"avg ad rate:       {avg_ad_rate:.1%}")
 
@@ -139,6 +154,18 @@ def main():
     parser.add_argument("--top-k", type=int, default=None)
     parser.add_argument("--exclude-ads", action="store_true")
     parser.add_argument(
+        "--no-rerank",
+        action="store_true",
+        help="Disable the cross-encoder reranker, for A/B comparison against retrieval.use_reranker",
+    )
+    parser.add_argument(
+        "--fusion-method",
+        type=str,
+        choices=["weighted", "rrf"],
+        default=None,
+        help="Override settings.yaml retrieval.fusion_method, for A/B comparison",
+    )
+    parser.add_argument(
         "--output", type=Path, default=None, help="Optional path to save results as JSON"
     )
     args = parser.parse_args()
@@ -146,6 +173,10 @@ def main():
     settings = load_settings(args.config)
     if args.top_k:
         settings["retrieval"]["top_k"] = args.top_k
+    if args.no_rerank:
+        settings["retrieval"]["use_reranker"] = False
+    if args.fusion_method:
+        settings["retrieval"]["fusion_method"] = args.fusion_method
 
     query_specs = load_queries(args.queries)
     if not query_specs:
@@ -161,6 +192,11 @@ def main():
     embedder = get_embedder(settings)
     collection = get_collection(settings)
 
+    cross_encoder = None
+    if settings["retrieval"].get("use_reranker", False):
+        log.info("Loading cross-encoder reranker...")
+        cross_encoder = get_cross_encoder(settings)
+
     all_metrics = []
     for spec in query_specs:
         results = hybrid_search(
@@ -172,6 +208,7 @@ def main():
             embedder,
             settings,
             exclude_ads=args.exclude_ads,
+            cross_encoder=cross_encoder,
         )
         all_metrics.append(evaluate_query(spec, results))
 

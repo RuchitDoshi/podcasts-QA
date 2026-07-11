@@ -61,7 +61,13 @@ from agent.tools import (  # noqa: E402
     list_episodes_tool,
     search_transcripts_tool,
 )
-from retrieve.hybrid import build_bm25, get_collection, get_embedder, load_corpus  # noqa: E402
+from retrieve.hybrid import (  # noqa: E402
+    build_bm25,
+    get_collection,
+    get_cross_encoder,
+    get_embedder,
+    load_corpus,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger("orchestrator")
@@ -83,6 +89,9 @@ air) rather than its content, use get_episode_info instead of searching.
 fix the problem it describes (e.g. call list_episodes to get a real episode_id), \
 and try again. Do not abandon the tool and answer from memory instead just \
 because one call failed.
+- Do not call submit_answer in the same turn as other tool calls whose results \
+you haven't seen yet. Send your exploratory/search calls, wait for their \
+results, and only call submit_answer by itself once you've actually used them.
 
 Grounding rules -- these are strict, not suggestions:
 - You must finish by calling submit_answer. Do not answer in plain text.
@@ -117,6 +126,17 @@ def _is_tool_use_failed(error: Exception) -> bool:
         if code == "tool_use_failed":
             return True
     return "tool_use_failed" in str(error)
+
+
+def _is_rate_limit_error(error: Exception) -> bool:
+    status = getattr(error, "status_code", None)
+    if status == 429:
+        return True
+    body = getattr(error, "body", None)
+    if isinstance(body, dict) and (body.get("error") or {}).get("code") == "rate_limit_exceeded":
+        return True
+    msg = str(error).lower()
+    return "rate limit" in msg or "429" in msg
 
 
 # Some Llama checkpoints on Groq occasionally fall back to a "pythonic" tool
@@ -174,19 +194,42 @@ def _salvage_tool_call(error: Exception):
 
 
 def call_llm_with_retry(client, max_retries: int = MAX_LLM_RETRIES, **kwargs):
-    """Wraps client.chat.completions.create. On tool_use_failed, first tries
-    to salvage a usable tool call from the raw failed_generation text (see
-    _salvage_tool_call) since this failure mode is usually a deterministic
-    model habit, not transient noise -- retrying the identical request tends
-    to reproduce the same malformed output. Falls back to retry-with-backoff
-    if salvage isn't possible. Any other error (auth, rate limit, etc.) is
-    raised immediately -- retrying those wouldn't help and would just mask a
-    real problem."""
+    """Wraps client.chat.completions.create with two independent retry paths:
+
+    1. tool_use_failed -- first tries to salvage a usable tool call from the
+       raw failed_generation text (see _salvage_tool_call), since this is
+       usually a deterministic model habit, not sampling noise, and retrying
+       the identical request tends to reproduce the same malformed output.
+       Falls back to retry-with-backoff if salvage isn't possible.
+
+    2. Plain rate limiting (429) -- retried with longer backoff. An earlier
+       version of this function treated ANY non-tool_use_failed error as
+       unretryable, including this one -- which meant a real Groq rate limit
+       (hit in practice running this project, not a hypothetical) crashed
+       the whole agent run immediately instead of backing off. Rate limits
+       are exactly the case retrying helps with, unlike genuine auth/request
+       errors, which still raise immediately since no amount of waiting
+       fixes a bad API key or a malformed request unrelated to tool calls."""
     last_error = None
     for attempt in range(max_retries):
         try:
             return client.chat.completions.create(**kwargs)
         except Exception as e:
+            if _is_rate_limit_error(e):
+                last_error = e
+                if attempt < max_retries - 1:
+                    wait = 10.0 * (attempt + 1)  # rate limit windows reset on the order of
+                    # seconds to a minute, not milliseconds -- longer backoff than tool_use_failed
+                    log.warning(
+                        "Rate limited, attempt %d/%d -- waiting %.0fs",
+                        attempt + 1,
+                        max_retries,
+                        wait,
+                    )
+                    time.sleep(wait)
+                    continue
+                break
+
             if not _is_tool_use_failed(e):
                 raise
 
@@ -204,7 +247,7 @@ def call_llm_with_retry(client, max_retries: int = MAX_LLM_RETRIES, **kwargs):
                     wait,
                 )
                 time.sleep(wait)
-    log.error("tool_use_failed persisted after %d attempts, giving up", max_retries)
+    log.error("LLM call failed after %d attempts (last error: %s)", max_retries, last_error)
     raise last_error
 
 
@@ -305,6 +348,11 @@ class AgentContext:
         log.info("Loading embedder and Chroma collection...")
         self.embedder = get_embedder(settings)
         self.collection = get_collection(settings)
+
+        self.cross_encoder = None
+        if settings["retrieval"].get("use_reranker", False):
+            log.info("Loading cross-encoder reranker...")
+            self.cross_encoder = get_cross_encoder(settings)
 
         with open(episodes_config) as f:
             data = yaml.safe_load(f)
@@ -463,6 +511,7 @@ def execute_tool_call(
                 settings=ctx.settings,
                 episode_id=args.get("episode_id"),
                 top_k=args.get("top_k"),
+                cross_encoder=ctx.cross_encoder,
             )
             result = dedup_and_budget_search_results(result, session)
 
@@ -592,10 +641,52 @@ def run_agent(query: str, ctx: AgentContext, client, model: str, verbose: bool =
             }
         )
 
+        # submit_answer is only honored when it's the SOLE tool call in this
+        # response. A real failure mode found on live data: the model bundled
+        # list_episodes + search_transcripts (which failed validation) +
+        # submit_answer all in one batch, without ever seeing the
+        # list_episodes results -- which actually contained the real
+        # episode_id it needed. Returning immediately on a bundled
+        # submit_answer meant the model never got a chance to act on its own
+        # tool results within the same turn, defeating the "read the error
+        # and retry" instruction entirely. Deferring it forces a genuine next
+        # iteration where the model has real results to react to.
+        submit_call = next((tc for tc in tool_calls if tc.function.name == "submit_answer"), None)
+        if submit_call and len(tool_calls) > 1:
+            log.warning(
+                "Model bundled submit_answer with %d other unresolved tool call(s) -- "
+                "deferring it so those results are seen before a final answer is accepted",
+                len(tool_calls) - 1,
+            )
+
         for tc in tool_calls:
             args = json.loads(tc.function.arguments)
 
             if tc.function.name == "submit_answer":
+                if len(tool_calls) > 1:
+                    # Deferred: respond to this tool_call_id (required by the
+                    # API -- every tool_call must get a matching result) but
+                    # don't treat it as final. The other calls in this same
+                    # batch still execute normally below.
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": tc.id,
+                            "content": json.dumps(
+                                {
+                                    "deferred": True,
+                                    "reason": (
+                                        "submit_answer was called alongside other tool calls "
+                                        "that haven't returned results yet. Wait for those "
+                                        "results, then call submit_answer again on its own "
+                                        "once you've actually used them."
+                                    ),
+                                }
+                            ),
+                        }
+                    )
+                    continue
+
                 verified_citations = verify_citations(args.get("citations", []), session)
                 valid_citations = [c for c in verified_citations if c["verified"]]
                 claimed_has_answer = args.get("has_answer", False)

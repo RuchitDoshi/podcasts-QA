@@ -111,6 +111,7 @@ def search_transcripts_tool(
     episode_id: str | None = None,
     top_k: int | None = None,
     exclude_ads: bool = True,
+    cross_encoder=None,
 ) -> dict:
     """Runs hybrid search, optionally restricted to a single episode.
 
@@ -150,7 +151,15 @@ def search_transcripts_tool(
         settings["retrieval"]["top_k"] = top_k * 3 if episode_id else top_k
 
     results = hybrid_search(
-        query, corpus, corpus_by_id, bm25, collection, embedder, settings, exclude_ads=exclude_ads
+        query,
+        corpus,
+        corpus_by_id,
+        bm25,
+        collection,
+        embedder,
+        settings,
+        exclude_ads=exclude_ads,
+        cross_encoder=cross_encoder,
     )
 
     if episode_id:

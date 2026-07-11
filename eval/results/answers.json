@@ -1,0 +1,149 @@
+{
+  "timestamp": "2026-07-11T00:07:19.229625+00:00",
+  "results": [
+    {
+      "query": "What does Kaldellis say about the fall of Constantinople?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Kaldellis discusses the fall of Constantinople in the context of the Roman Empire's history, highlighting the role of geography and the effectiveness of the empire's military in defending against invaders. He notes that the empire's ability to survive for as long as it did was due in part to the decision made by local communities to stick with the Roman state, even in the face of trouble. Kaldellis also mentions the use of flamethrowers, which were acquired by the empire at some point, and the importance of holding a line against invaders. Additionally, he touches on the topic of emperors being overthrown through violence, and how they would try to prevent this by doing things that would make people happy.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "faithfulness": 3,
+      "relevance": 3,
+      "judge_notes": "The source excerpts discuss the survival and defense of Constantinople, not its fall; the answer falsely claims Kaldellis is discussing the 'fall' of Constantinople, though the specific historical details mentioned are faithfully extracted."
+    },
+    {
+      "query": "What does Terence Tao say about using AI to solve hard math problems?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Terence Tao discusses the potential of using AI to solve hard math problems, highlighting the ability of AI to fill in gaps and reduce friction in certain tasks, such as coding. However, he also notes that AI is not a replacement for human mathematicians and that there are still many skills and abilities that are unique to humans. He mentions that some math results could only have been accomplished with the help of AI, but it's hard to disentangle the credit between human and AI contributions. Additionally, he talks about the use of AI in formal verification, such as in the Lean project, where AI can be used to search for and suggest relevant theorems and proofs.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 2,
+      "faithfulness": 5,
+      "relevance": 5,
+      "judge_notes": "The assistant's answer is highly faithful to the source excerpts, accurately summarizing all the key points Tao makes about AI's role in math, coding, and the Lean project, and it directly answers the user's question."
+    },
+    {
+      "query": "What does Pavel Durov say about Telegram and government censorship?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Pavel Durov says that Telegram has never shared private user messages with governments or intelligence agencies and that the company is committed to protecting user privacy. He also mentions that Telegram has been banned in some countries, such as Iran and Russia, due to its refusal to provide encryption keys or restrict certain content. Durov believes that censorship is a natural tendency of governments and that it can lead to the accumulation of power at the expense of individual freedom. He emphasizes the importance of protecting freedom of speech and the right to privacy, and he sees Telegram as a platform that allows people to express themselves freely and access independent sources of information.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "faithfulness": 2,
+      "relevance": 5,
+      "judge_notes": "The answer is highly relevant, but it contains several claims not supported by the cited excerpts, such as Telegram's refusal to share private messages or provide encryption keys, and Durov's views on the right to privacy."
+    },
+    {
+      "query": "What does Jensen Huang say about Nvidia becoming a 4 trillion dollar company?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Jensen Huang believes that Nvidia can become a $4 trillion company in the future. He thinks that the company's installed base of CUDA and its partnerships with other companies will help it to achieve this goal. He also mentions that Nvidia is not in the market share business, but rather in the business of creating new opportunities and expanding its reach. ",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 2,
+      "faithfulness": 2,
+      "relevance": 5,
+      "judge_notes": "The assistant's answer hallucinates '4 trillion' (the source text only mentions '3 trillion') and mentions 'CUDA' which is not in the provided excerpts."
+    },
+    {
+      "query": "What does Dan Houser say about writing Red Dead Redemption?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Dan Houser talks about the process of creating the Red Dead Redemption series, including the development of the game's story, characters, and world. He mentions how the team worked together to create a strong narrative and how they drew inspiration from Western films. He also discusses the challenges of creating a game that is both a sequel and a new story, and how they tried to take the series in a different direction with Red Dead Redemption 2. Additionally, he shares his thoughts on the importance of details in game development and how they can add to the overall experience. ",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 5,
+      "faithfulness": 2,
+      "relevance": 3,
+      "judge_notes": "The answer contains several claims not supported by the text, such as drawing inspiration from Western films and the challenges of making a sequel/taking the series in a different direction. It also misses the actual specific details Dan Houser discussed, such as writing the character of Dutch or working with Christian Cantamessa."
+    },
+    {
+      "query": "What does Dave Plummer say about programming and autism?",
+      "type": "clean",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "mechanically_grounded": false,
+      "all_citations_verified": false,
+      "num_citations": 0,
+      "faithfulness": null,
+      "relevance": null,
+      "judge_notes": null
+    },
+    {
+      "query": "What is discussed about T-Rex and dinosaur extinction?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "The discussion about T-Rex and dinosaur extinction includes the idea that dinosaurs were highly dominant and filled almost all ecological niches, making it unlikely for humans to have evolved if they hadn't gone extinct. The guest, Dave Hone, also talks about the size of prey that dinosaurs would typically hunt, and how it's similar to what we see with modern carnivores. Additionally, he discusses how dinosaurs were likely doing fine right up to the extinction event and that there's no reason to think they were on a terminal decline.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "faithfulness": 5,
+      "relevance": 5,
+      "judge_notes": "The answer is highly faithful to the source excerpts, accurately summarizing the dominance of dinosaurs, their status before the extinction event, and the prey sizes of tyrannosaurs compared to modern carnivores."
+    },
+    {
+      "query": "What does the conversation say about nuclear fusion and plasma confinement?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "The conversation discusses nuclear fusion and plasma confinement, with a focus on the challenges and potential solutions for achieving controlled nuclear fusion. The guest, David Kirtley, explains the importance of magnetic fields, temperature, and density in achieving fusion, as well as the need for stability in the plasma. He also discusses the potential for fusion power plants to connect to the power grid and the unique aspects of pulsed fusion systems.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 4,
+      "faithfulness": 4,
+      "relevance": 5,
+      "judge_notes": "The answer is highly accurate and directly addresses the question, though the guest's name (David Kirtley) is not mentioned in the provided text."
+    },
+    {
+      "query": "what companies has Lex mentioned recently",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "Unfortunately, I could not find any information about companies mentioned by Lex recently.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 0,
+      "faithfulness": null,
+      "relevance": null,
+      "judge_notes": null
+    },
+    {
+      "query": "what is the best thing that was said in any episode",
+      "type": "adversarial",
+      "has_answer": true,
+      "answer": "The best thing said in any episode is: great conversations with on and off the internet. She's a great person, and she's a great person and off the mic. This was an honor and a pleasure.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 1,
+      "faithfulness": 5,
+      "relevance": 4,
+      "judge_notes": "The assistant faithfully quotes the provided excerpt, though the excerpt itself does not objectively state what the 'best' thing said was."
+    },
+    {
+      "query": "How do Jensen Huang and Pavel Durov think differently about AI and censorship?",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "mechanically_grounded": false,
+      "all_citations_verified": false,
+      "num_citations": 0,
+      "faithfulness": null,
+      "relevance": null,
+      "judge_notes": null
+    },
+    {
+      "query": "xenodochium Byzantine hospice",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "mechanically_grounded": false,
+      "all_citations_verified": false,
+      "num_citations": 0,
+      "faithfulness": null,
+      "relevance": null,
+      "judge_notes": null
+    }
+  ]
+}
