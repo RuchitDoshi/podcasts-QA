@@ -1,0 +1,217 @@
+# Agent trajectory eval scenarios. Each scenario is run through the REAL
+# agent (agent/orchestrator.py's run_agent), and its captured trajectory
+# (agent/orchestrator.py's SessionState.trajectory) is checked against
+# structural expectations defined here -- mechanically, not via an LLM
+# judge, matching the pattern already established for citation verification
+# elsewhere in this project (cheap, deterministic, no extra API cost).
+#
+# Fields:
+#   query: the question sent to the agent
+#   type: category, used for grouping in the report
+#   expected_guest: if set, tool-selection accuracy checks that a
+#     list_episodes call was made with a guest argument that's a
+#     substring-match (case-insensitive) of this name, before any
+#     search_transcripts call -- catches both "skipped list_episodes
+#     entirely" and "called it with the wrong guest"
+#   requires_list_episodes_before_search: bool -- for named-guest questions,
+#     the correct trajectory looks up the real episode_id first rather than
+#     guessing/constructing one (this is also code-enforced at the
+#     validation layer -- this checks the model CHOSE the right path, not
+#     just that a wrong path got rejected)
+#   requires_get_episode_info: bool -- question is about the episode itself
+#     (when it aired, who the guest was, its topic tags), not its content
+#   requires_multiple_episodes: bool -- cross-episode questions should
+#     search_transcripts against at least 2 distinct episode_ids
+#   expects_has_answer: true | false | null -- null means no strong
+#     expectation either way (genuinely ambiguous), not scored for task
+#     success, only reported
+#   max_reasonable_tool_calls: soft bound for trajectory efficiency -- not
+#     a hard failure if exceeded, just scored as less efficient
+#   notes: why this scenario is here / what it's meant to catch
+
+scenarios:
+  # --- named_guest: list_episodes should precede a restricted search ---
+  - query: "What does Kaldellis say about Justinian's legal reforms?"
+    type: "named_guest"
+    expected_guest: "Kaldellis"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+    notes: "Baseline named-guest case, previously validated to work end to end"
+
+  - query: "What does Terence Tao say about AI solving hard math problems?"
+    type: "named_guest"
+    expected_guest: "Tao"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Pavel Durov say about Telegram and government censorship?"
+    type: "named_guest"
+    expected_guest: "Durov"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Jensen Huang say about Nvidia becoming a trillion dollar company?"
+    type: "named_guest"
+    expected_guest: "Huang"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+    notes: "Real prior finding: model previously hallucinated '4 trillion' vs source's '3 trillion' -- watch citation content, not just trajectory shape"
+
+  - query: "What does Dan Houser say about writing Red Dead Redemption?"
+    type: "named_guest"
+    expected_guest: "Houser"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Dave Plummer say about programming and autism?"
+    type: "named_guest"
+    expected_guest: "Plummer"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Dave Hone say about T-Rex hunting behavior?"
+    type: "named_guest"
+    expected_guest: "Hone"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does David Kirtley say about plasma confinement in nuclear fusion?"
+    type: "named_guest"
+    expected_guest: "Kirtley"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Norman Ohler say about drug use in Nazi Germany?"
+    type: "named_guest"
+    expected_guest: "Ohler"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  # --- cross_episode: should search across multiple distinct episodes ---
+  - query: "How do Jensen Huang and Pavel Durov think differently about AI and censorship?"
+    type: "cross_episode"
+    requires_multiple_episodes: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+    notes: "Known to be inconsistent run-to-run (temperature sampling) -- track has_answer rate across repeated runs rather than expecting a fixed outcome"
+
+  - query: "Compare how Kaldellis and Jack Weatherford talk about how empires are built and maintained."
+    type: "cross_episode"
+    requires_multiple_episodes: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+
+  - query: "Do Terence Tao and David Kirtley have similar views on how AI could accelerate scientific discovery?"
+    type: "cross_episode"
+    requires_multiple_episodes: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+
+  - query: "How does Dan Houser's creative process compare to Dave Plummer's approach to technical problem-solving?"
+    type: "cross_episode"
+    requires_multiple_episodes: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+
+  # --- unanswerable: should correctly decline, not fabricate ---
+  - query: "What did Anthony Kaldellis say about his favorite pizza toppings?"
+    type: "unanswerable"
+    expects_has_answer: false
+    max_reasonable_tool_calls: 4
+    notes: "Previously validated: correctly declines given no real answer exists in corpus"
+
+  - query: "xenodochium Byzantine hospice"
+    type: "unanswerable"
+    expects_has_answer: false
+    max_reasonable_tool_calls: 4
+    notes: "Term never confirmed to appear in the transcript -- see eval/queries.yaml's note on this same case for retrieval eval"
+
+  - query: "What companies has Lex mentioned recently?"
+    type: "unanswerable"
+    expects_has_answer: null
+    max_reasonable_tool_calls: 4
+    notes: "Deliberately ambiguous/no-anchor query, known to sometimes pull ad content -- tracked, not scored as strict pass/fail"
+
+  - query: "What is the best thing that was said in any episode?"
+    type: "unanswerable"
+    expects_has_answer: null
+    max_reasonable_tool_calls: 4
+
+  - query: "What does John Fakename say about quantum teleportation?"
+    type: "unanswerable"
+    expects_has_answer: false
+    max_reasonable_tool_calls: 4
+    notes: "Fabricated guest name that doesn't exist in the corpus -- list_episodes should return no match, and the agent should decline rather than search anyway"
+
+  # --- episode_info: should use get_episode_info, not a content search ---
+  - query: "When did the Anthony Kaldellis episode air?"
+    type: "episode_info"
+    requires_get_episode_info: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "Who was the guest in the episode about Nvidia becoming a trillion dollar company?"
+    type: "episode_info"
+    requires_get_episode_info: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What topic tags are associated with the Pavel Durov episode?"
+    type: "episode_info"
+    requires_get_episode_info: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What is the Dave Plummer episode generally about?"
+    type: "episode_info"
+    requires_get_episode_info: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  # --- context_expansion: a real prior case where the top result was incomplete ---
+  - query: "What did Sundar Pichai say about Robotaxi and the robotics sector?"
+    type: "context_expansion"
+    expected_guest: "Pichai"
+    requires_list_episodes_before_search: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+    notes: "Real prior finding (Section 17.5 investigation): the best-matching chunk for this query ranked low under both fusion methods -- a good test of whether get_context_window gets used to recover it, not scored strictly since it's exploratory"
+
+  - query: "What specific numbers did Jensen Huang give about Nvidia's data center revenue?"
+    type: "context_expansion"
+    expected_guest: "Huang"
+    requires_list_episodes_before_search: true
+    expects_has_answer: null
+    max_reasonable_tool_calls: 6
+    notes: "Narrow, detail-seeking question -- plausible candidate for needing context expansion beyond a single chunk"
+
+  # --- efficient_factual: simple, should resolve in few iterations ---
+  - query: "What does Dave Hone say caused the dinosaur extinction event?"
+    type: "efficient_factual"
+    expected_guest: "Hone"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Terence Tao say about the Lean theorem prover?"
+    type: "efficient_factual"
+    expected_guest: "Tao"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
+
+  - query: "What does Keyu Jin say about China's economy and tariffs?"
+    type: "efficient_factual"
+    expected_guest: "Keyu Jin"
+    requires_list_episodes_before_search: true
+    expects_has_answer: true
+    max_reasonable_tool_calls: 3
