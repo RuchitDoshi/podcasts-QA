@@ -1,0 +1,693 @@
+{
+  "timestamp": "2026-07-13T01:49:06.238932+00:00",
+  "results": [
+    {
+      "query": "What does Kaldellis say about Justinian's legal reforms?",
+      "type": "named_guest",
+      "has_answer": true,
+      "answer": "Kaldellis states that Justinian's legal reforms were a massive work of codification, resulting in the Corpus Iuris Quirilis, which is the body of Roman civil law. The reforms included a systematic structure of private law, strong protection of property and contracts, and detailed family and inheritance rules. Kaldellis also mentions that Justinian's committee, specifically Trebonian, played a significant role in shaping Roman law. Additionally, Kaldellis notes that Justinian's laws had a lasting impact, becoming the template for later civil law.",
+      "citations": [
+        {
+          "chunk_id": "498_anthony_kaldellis_roman_empire_byzan__chunk0201",
+          "end": 9828.82,
+          "episode_id": "498_anthony_kaldellis_roman_empire_byzan",
+          "start": 9747.48,
+          "guest": "Anthony Kaldellis",
+          "verified": true
+        },
+        {
+          "chunk_id": "498_anthony_kaldellis_roman_empire_byzan__chunk0199",
+          "end": 9693.06,
+          "episode_id": "498_anthony_kaldellis_roman_empire_byzan",
+          "start": 9637.66,
+          "guest": "Anthony Kaldellis",
+          "verified": true
+        }
+      ],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": true,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Kaldellis"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "498_anthony_kaldellis_roman_empire_byzan",
+            "query": "Justinian legal reforms"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "Kaldellis states that Justinian's legal reforms were a massive work of codification, resulting in the Corpus Iuris Quirilis, which is the body of Roman civil law. The reforms included a systematic structure of private law, strong protection of property and contracts, and detailed family and inheritance rules. Kaldellis also mentions that Justinian's committee, specifically Trebonian, played a significant role in shaping Roman law. Additionally, Kaldellis notes that Justinian's laws had a lasting impact, becoming the template for later civil law.",
+            "citations": [
+              {
+                "chunk_id": "498_anthony_kaldellis_roman_empire_byzan__chunk0201",
+                "end": 9828.82,
+                "episode_id": "498_anthony_kaldellis_roman_empire_byzan",
+                "start": 9747.48
+              },
+              {
+                "chunk_id": "498_anthony_kaldellis_roman_empire_byzan__chunk0199",
+                "end": 9693.06,
+                "episode_id": "498_anthony_kaldellis_roman_empire_byzan",
+                "start": 9637.66
+              }
+            ],
+            "has_answer": true
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 5474,
+      "latency_s": 6.464,
+      "dollar_cost_estimate": 0.00328346,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Terence Tao say about AI solving hard math problems?",
+      "type": "named_guest",
+      "has_answer": true,
+      "answer": "Terence Tao discusses how AI can assist in solving hard math problems by filling in gaps and proposing new ideas, but also notes that AI struggles with knowing when it has made a wrong turn and can produce flawed proofs that look superficially flawless. He mentions that there are efforts to have an AI math olympiad where AIs will be given the same problems as human contestants and the outputs will have to be graded by the same judges.",
+      "citations": [
+        {
+          "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0122",
+          "end": 7750.63,
+          "episode_id": "472_terence_tao_hardest_problems_in_math",
+          "start": 7678.99,
+          "guest": "Terence Tao",
+          "verified": true
+        },
+        {
+          "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0114",
+          "end": 7168.68,
+          "episode_id": "472_terence_tao_hardest_problems_in_math",
+          "start": 7079.02,
+          "guest": "Terence Tao",
+          "verified": true
+        },
+        {
+          "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0112",
+          "end": 6999.96,
+          "episode_id": "472_terence_tao_hardest_problems_in_math",
+          "start": 6910.18,
+          "guest": "Terence Tao",
+          "verified": true
+        }
+      ],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": true,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Terence Tao"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "472_terence_tao_hardest_problems_in_math",
+            "query": "AI solving hard math problems"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "Terence Tao discusses how AI can assist in solving hard math problems by filling in gaps and proposing new ideas, but also notes that AI struggles with knowing when it has made a wrong turn and can produce flawed proofs that look superficially flawless. He mentions that there are efforts to have an AI math olympiad where AIs will be given the same problems as human contestants and the outputs will have to be graded by the same judges.",
+            "citations": [
+              {
+                "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0122",
+                "end": 7750.63,
+                "episode_id": "472_terence_tao_hardest_problems_in_math",
+                "start": 7678.99
+              },
+              {
+                "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0114",
+                "end": 7168.68,
+                "episode_id": "472_terence_tao_hardest_problems_in_math",
+                "start": 7079.02
+              },
+              {
+                "chunk_id": "472_terence_tao_hardest_problems_in_math__chunk0112",
+                "end": 6999.96,
+                "episode_id": "472_terence_tao_hardest_problems_in_math",
+                "start": 6910.18
+              }
+            ],
+            "has_answer": true
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 4429,
+      "latency_s": 37.758,
+      "dollar_cost_estimate": 0.00267011,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Pavel Durov say about Telegram and government censorship?",
+      "type": "named_guest",
+      "has_answer": true,
+      "answer": "Pavel Durov says that Telegram has been fighting harmful content on its platform since 10 years ago and has daily transparency reports on how many channels related to child abuse or terrorist activity are blocked. He also mentions that Telegram has never shared a single private message with anyone, including governments and intelligence services, and that the company's design is such that no single government or entity can access user data. Additionally, Durov notes that Telegram is very protective of the private messages of users and that employees never can access private messages. He also talks about the pressure from governments, such as Russia and Iran, to ban Telegram and how the company has resisted this pressure.",
+      "citations": [
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0129",
+          "end": 5038.04,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 4969.14,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0216",
+          "end": 11046.02,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 10959.79,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0111",
+          "end": 3780.47,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 3698.6,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0118",
+          "end": 4319.47,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 4229.93,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0106",
+          "end": 3394.4,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 3305.78,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0105",
+          "end": 3310.86,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 3221.95,
+          "guest": "Pavel Durov",
+          "verified": true
+        },
+        {
+          "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0215",
+          "end": 10969.83,
+          "episode_id": "482_pavel_durov_telegram_freedom_censors",
+          "start": 10904.63,
+          "guest": "Pavel Durov",
+          "verified": true
+        }
+      ],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": true,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Pavel Durov"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "482_pavel_durov_telegram_freedom_censors",
+            "query": "Telegram government censorship"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "Pavel Durov says that Telegram has been fighting harmful content on its platform since 10 years ago and has daily transparency reports on how many channels related to child abuse or terrorist activity are blocked. He also mentions that Telegram has never shared a single private message with anyone, including governments and intelligence services, and that the company's design is such that no single government or entity can access user data. Additionally, Durov notes that Telegram is very protective of the private messages of users and that employees never can access private messages. He also talks about the pressure from governments, such as Russia and Iran, to ban Telegram and how the company has resisted this pressure.",
+            "citations": [
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0129",
+                "end": 5038.04,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 4969.14
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0216",
+                "end": 11046.02,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 10959.79
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0111",
+                "end": 3780.47,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 3698.6
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0118",
+                "end": 4319.47,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 4229.93
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0106",
+                "end": 3394.4,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 3305.78
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0105",
+                "end": 3310.86,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 3221.95
+              },
+              {
+                "chunk_id": "482_pavel_durov_telegram_freedom_censors__chunk0215",
+                "end": 10969.83,
+                "episode_id": "482_pavel_durov_telegram_freedom_censors",
+                "start": 10904.63
+              }
+            ],
+            "has_answer": true
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 5797,
+      "latency_s": 59.355,
+      "dollar_cost_estimate": 0.0035250299999999997,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Jensen Huang say about Nvidia becoming a trillion dollar company?",
+      "type": "named_guest",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "tool_use_failed_exhausted",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 862,
+      "latency_s": 28.816,
+      "dollar_cost_estimate": 0.00050858,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Dan Houser say about writing Red Dead Redemption?",
+      "type": "named_guest",
+      "has_answer": true,
+      "answer": "Dan Houser discusses the writing of Red Dead Redemption, highlighting the importance of specific, intricate details in the story and visuals to create a real-world feel. He also mentions the game's cowboy setting, which gives a mythic seriousness that allows for operatic feel and themes of people searching for meaning amongst violence.",
+      "citations": [
+        {
+          "chunk_id": "484_dan_houser_gta_red_dead_redemption_r__chunk0170",
+          "end": 6932.22,
+          "episode_id": "484_dan_houser_gta_red_dead_redemption_r",
+          "start": 6843,
+          "guest": "Dan Houser",
+          "verified": true
+        },
+        {
+          "chunk_id": "484_dan_houser_gta_red_dead_redemption_r__chunk0141",
+          "end": 4987.5,
+          "episode_id": "484_dan_houser_gta_red_dead_redemption_r",
+          "start": 4900.02,
+          "guest": "Dan Houser",
+          "verified": true
+        }
+      ],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": true,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Dan Houser"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "484_dan_houser_gta_red_dead_redemption_r",
+            "query": "writing Red Dead Redemption"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "Dan Houser discusses the writing of Red Dead Redemption, highlighting the importance of specific, intricate details in the story and visuals to create a real-world feel. He also mentions the game's cowboy setting, which gives a mythic seriousness that allows for operatic feel and themes of people searching for meaning amongst violence.",
+            "citations": [
+              {
+                "chunk_id": "484_dan_houser_gta_red_dead_redemption_r__chunk0170",
+                "end": 6932.22,
+                "episode_id": "484_dan_houser_gta_red_dead_redemption_r",
+                "start": 6843
+              },
+              {
+                "chunk_id": "484_dan_houser_gta_red_dead_redemption_r__chunk0141",
+                "end": 4987.5,
+                "episode_id": "484_dan_houser_gta_red_dead_redemption_r",
+                "start": 4900.02
+              }
+            ],
+            "has_answer": true
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 4544,
+      "latency_s": 62.09,
+      "dollar_cost_estimate": 0.00272416,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Dave Plummer say about programming and autism?",
+      "type": "named_guest",
+      "has_answer": false,
+      "answer": "I could not verify any information about what Dave Plummer says about programming and autism.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": false,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Dave Plummer"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "479_dave_plummer_programming_autism_and_",
+            "query": "programming and autism"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "I could not verify any information about what Dave Plummer says about programming and autism.",
+            "citations": [],
+            "has_answer": false
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 3059,
+      "latency_s": 28.502,
+      "dollar_cost_estimate": 0.0018196099999999997,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Dave Hone say about T-Rex hunting behavior?",
+      "type": "named_guest",
+      "has_answer": true,
+      "answer": "Dave Hone discusses T-Rex hunting behavior, suggesting that they likely hunted smaller prey, such as juveniles or weak individuals, rather than large adults. He also mentions that T-Rex had a relatively slow bite, but extremely powerful, and that they may have used their arms to grapple with prey before biting. Additionally, he notes that T-Rex may have engaged in cannibalism, as evidenced by bite marks on T-Rex bones.",
+      "citations": [
+        {
+          "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0072",
+          "end": 1644.52,
+          "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+          "start": 1557.64,
+          "guest": "Dave Hone",
+          "verified": true
+        },
+        {
+          "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0129",
+          "end": 5753.92,
+          "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+          "start": 5675.98,
+          "guest": "Dave Hone",
+          "verified": true
+        },
+        {
+          "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0078",
+          "end": 2119.38,
+          "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+          "start": 2040.8,
+          "guest": "Dave Hone",
+          "verified": true
+        },
+        {
+          "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0186",
+          "end": 9896.68,
+          "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+          "start": 9843.22,
+          "guest": "Dave Hone",
+          "verified": true
+        }
+      ],
+      "withheld_answer": null,
+      "all_citations_verified": true,
+      "infra_failure": false,
+      "infra_failure_reason": null,
+      "task_success": true,
+      "tool_call_count": 2,
+      "trajectory": [
+        {
+          "tool": "list_episodes",
+          "args": {
+            "guest": "Dave Hone"
+          },
+          "error": false
+        },
+        {
+          "tool": "search_transcripts",
+          "args": {
+            "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+            "query": "T-Rex hunting behavior"
+          },
+          "error": false
+        },
+        {
+          "tool": "submit_answer",
+          "args": {
+            "answer": "Dave Hone discusses T-Rex hunting behavior, suggesting that they likely hunted smaller prey, such as juveniles or weak individuals, rather than large adults. He also mentions that T-Rex had a relatively slow bite, but extremely powerful, and that they may have used their arms to grapple with prey before biting. Additionally, he notes that T-Rex may have engaged in cannibalism, as evidenced by bite marks on T-Rex bones.",
+            "citations": [
+              {
+                "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0072",
+                "end": 1644.52,
+                "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+                "start": 1557.64
+              },
+              {
+                "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0129",
+                "end": 5753.92,
+                "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+                "start": 5675.98
+              },
+              {
+                "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0078",
+                "end": 2119.38,
+                "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+                "start": 2040.8
+              },
+              {
+                "chunk_id": "480_dave_hone_t_rex_dinosaurs_extinction__chunk0186",
+                "end": 9896.68,
+                "episode_id": "480_dave_hone_t_rex_dinosaurs_extinction",
+                "start": 9843.22
+              }
+            ],
+            "has_answer": true
+          },
+          "error": false
+        }
+      ],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": true,
+      "tool_selection_reason": "list_episodes correctly preceded search_transcripts",
+      "efficiency": 1.0,
+      "tokens_total": 5862,
+      "latency_s": 49.496,
+      "dollar_cost_estimate": 0.00352238,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does David Kirtley say about plasma confinement in nuclear fusion?",
+      "type": "named_guest",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "tool_use_failed_exhausted",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 861,
+      "latency_s": 29.09,
+      "dollar_cost_estimate": 0.0005079899999999999,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "What does Norman Ohler say about drug use in Nazi Germany?",
+      "type": "named_guest",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "tool_use_failed_exhausted",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 858,
+      "latency_s": 22.061,
+      "dollar_cost_estimate": 0.00050622,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "How do Jensen Huang and Pavel Durov think differently about AI and censorship?",
+      "type": "cross_episode",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "tool_use_failed_exhausted",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 863,
+      "latency_s": 27.233,
+      "dollar_cost_estimate": 0.00050917,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "Compare how Kaldellis and Jack Weatherford talk about how empires are built and maintained.",
+      "type": "cross_episode",
+      "has_answer": false,
+      "answer": "The model repeatedly failed to produce a valid tool call for this question. This is usually transient -- try rephrasing the question or running it again.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "tool_use_failed_exhausted",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 866,
+      "latency_s": 25.043,
+      "dollar_cost_estimate": 0.00051094,
+      "dollar_cost_source": "groq_fallback_estimate"
+    },
+    {
+      "query": "Do Terence Tao and David Kirtley have similar views on how AI could accelerate scientific discovery?",
+      "type": "cross_episode",
+      "has_answer": false,
+      "answer": "The Groq API daily token quota was exhausted while running this query -- this is an infrastructure limit, not a reflection of whether the corpus actually contains an answer. Wait for the quota to reset (see the error for Groq's suggested wait time) or upgrade tier, then re-run this specific query.",
+      "citations": [],
+      "withheld_answer": null,
+      "all_citations_verified": false,
+      "infra_failure": true,
+      "infra_failure_reason": "daily_limit",
+      "task_success": null,
+      "tool_call_count": 0,
+      "trajectory": [],
+      "had_error": false,
+      "error_then_recovered": false,
+      "tool_selection_ok": null,
+      "tool_selection_reason": "skipped: infra failure, scenario did not get a fair run",
+      "efficiency": null,
+      "tokens_total": 868,
+      "latency_s": 8.029,
+      "dollar_cost_estimate": 0.0005121199999999999,
+      "dollar_cost_source": "groq_fallback_estimate"
+    }
+  ]
+}

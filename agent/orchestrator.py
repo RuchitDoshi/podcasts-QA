@@ -102,6 +102,13 @@ next_chunk_id) rather than guessing at what the missing context might say.
 - Do not call submit_answer in the same turn as other tool calls whose results \
 you haven't seen yet. Send your exploratory/search calls, wait for their \
 results, and only call submit_answer by itself once you've actually used them.
+- Once you have enough well-supported material to give a clear, substantive \
+answer, stop searching and call submit_answer -- do not keep issuing further \
+searches chasing additional angles or more exhaustive coverage on a broad \
+question. A good answer covering the main points with solid citations is the \
+goal, not maximal coverage of every related sub-topic. If you're rephrasing \
+the same underlying question multiple times without learning anything new, \
+that's a sign to stop and answer with what you already have, not to keep going.
 
 Grounding rules -- these are strict, not suggestions:
 - You must finish by calling submit_answer. Do not answer in plain text.
@@ -662,14 +669,22 @@ class _LangChainChatCompletionsAdapter:
         self,
         model: str,
         messages: list[dict],
-        tools: list[dict],
-        tool_choice: str,
-        temperature: float,
+        tools: list[dict] | None = None,
+        tool_choice: str | None = None,
+        temperature: float = 0.2,
     ):
         llm = self._get_llm(model, temperature)
-        llm_with_tools = llm.bind_tools(tools, tool_choice=tool_choice)
         lc_messages = self._to_langchain_messages(messages)
-        ai_message = llm_with_tools.invoke(lc_messages)
+
+        # Plain-text generation (no tools) is a real, separate use case in
+        # this project -- eval/eval_answers.py's judge (via
+        # _GenerateContentAdapter) calls create() with only model/messages,
+        # no tools at all, since judging is a plain completion, not a tool
+        # call. Calling bind_tools([]) with an empty list is untested/
+        # ambiguous behavior to rely on, so skip binding entirely rather
+        # than guess it degrades gracefully.
+        target = llm.bind_tools(tools, tool_choice=tool_choice) if tools else llm
+        ai_message = target.invoke(lc_messages)
         return self._to_openai_shaped_response(ai_message)
 
 
@@ -1031,14 +1046,50 @@ def run_agent(query: str, ctx: AgentContext, client, model: str, verbose: bool =
 
     for iteration in range(MAX_ITERATIONS):
         session.iterations_used = iteration + 1
+        remaining = MAX_ITERATIONS - iteration
 
-        session.tokens_in += estimate_messages_tokens(messages)
+        # Passive prompt guidance alone didn't change behavior in practice --
+        # a real case (Claude Sonnet on a broad synthesis question) ran the
+        # identical 5-search, non-converging pattern with or without the
+        # "stop once you have enough" instruction in SYSTEM_PROMPT. An
+        # explicit, escalating reminder as the budget actually depletes is a
+        # more direct forcing function than a passive instruction the model
+        # can keep deprioritizing turn after turn. Computed fresh each
+        # iteration and appended only to THIS call's messages, not persisted
+        # into `messages` -- so it reflects the current true remaining count
+        # rather than stacking up duplicate reminders in the history.
+        call_messages = messages
+        if remaining == 2:
+            call_messages = messages + [
+                {
+                    "role": "user",
+                    "content": (
+                        "Reminder: you have 2 tool calls left in this session. If you "
+                        "don't already have enough to answer, do at most one more search, "
+                        "then call submit_answer with the best answer you can give from "
+                        "what you've found -- do not keep researching further angles."
+                    ),
+                }
+            ]
+        elif remaining == 1:
+            call_messages = messages + [
+                {
+                    "role": "user",
+                    "content": (
+                        "This is your LAST allowed tool call. You must call submit_answer "
+                        "now with the best answer you can give from what you've already "
+                        "found. Do not call any other tool."
+                    ),
+                }
+            ]
+
+        session.tokens_in += estimate_messages_tokens(call_messages)
         llm_start = time.time()
         try:
             response = call_llm_with_retry(
                 client,
                 model=model,
-                messages=messages,
+                messages=call_messages,
                 tools=tools,
                 tool_choice="auto",
                 temperature=0.2,

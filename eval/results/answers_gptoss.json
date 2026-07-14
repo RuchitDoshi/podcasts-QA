@@ -1,0 +1,742 @@
+{
+  "timestamp": "2026-07-14T00:03:39.719453+00:00",
+  "provider": "litellm",
+  "model": "openai.gpt-oss-120b-1:0",
+  "judge_provider": "litellm",
+  "judge_model": "zai.glm-5",
+  "results": [
+    {
+      "query": "What does Kaldellis say about the fall of Constantinople?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Anthony Kaldellis frames the 1453 fall of Constantinople as the endpoint of a long, gradual decline rather than a sudden catastrophe.  He points out that the empire\u2019s \u201csources of resilience\u201d began to disappear in the early\u2011fourteenth century \u2013 around 1300\u20111350 \u2013 when it lost its Asian territories to the Turks, could no longer draw on both its European and Asian wings, and was beset by a series of crises: civil wars, Serbian expansion and the Black Death.  By that point the empire had been reduced to a tiny Balkan state, and it never recovered from those setbacks.  The final collapse came in 1453 AD.\n\nKaldellis also notes the broader timeline: after the Arab siege of Constantinople in the eighth century, the Macedonian dynasty, the Crusades, and other crises, the empire ultimately fell in 1453.\n\n**Citations**\n- Episode #498, chunk 0242 (start\u202f12512.38, end\u202f12595.22): Kaldellis explains the early\u201114th\u2011century loss of resilience, loss of Asia Minor, civil wars, Serbian expansion, Black Death, and the eventual collapse in 1453.\n- Episode #498, chunk 0070 (start\u202f965.09, end\u202f1028.09): Kaldellis gives the overall timeline that ends with \u201ceventually leading to Constantinople falling in 1453 A.D.\u201d",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 2,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "Anthony Kaldellis frames the 1453 fall of Constantinople as the endpoint of a long, gradual decline rather than a sudden catastrophe.",
+            "supported": true
+          },
+          {
+            "claim": "The empire\u2019s \u201csources of resilience\u201d began to disappear in the early\u2011fourteenth century \u2013 around 1300\u20111350.",
+            "supported": true
+          },
+          {
+            "claim": "The empire lost its Asian territories to the Turks by around 1300.",
+            "supported": true
+          },
+          {
+            "claim": "The empire could no longer draw on both its European and Asian wings after losing Asia Minor.",
+            "supported": true
+          },
+          {
+            "claim": "The empire was beset by a series of crises: civil wars, Serbian expansion and the Black Death.",
+            "supported": true
+          },
+          {
+            "claim": "By the early 14th century, the empire had been reduced to a tiny Balkan state.",
+            "supported": true
+          },
+          {
+            "claim": "The empire never recovered from the setbacks of the early 14th century.",
+            "supported": true
+          },
+          {
+            "claim": "The final collapse came in 1453 AD.",
+            "supported": true
+          },
+          {
+            "claim": "The broader timeline includes the Arab siege of Constantinople in the eighth century.",
+            "supported": true
+          },
+          {
+            "claim": "The broader timeline includes the Macedonian dynasty.",
+            "supported": true
+          },
+          {
+            "claim": "The broader timeline includes the Crusades.",
+            "supported": true
+          }
+        ],
+        "num_claims": 11,
+        "num_supported": 11
+      },
+      "relevancy": {
+        "score": 0.8124056855837504,
+        "generated_questions": [
+          "How does Anthony Kaldellis characterize the fall of Constantinople in 1453?",
+          "According to Anthony Kaldellis, when did the Byzantine Empire's 'sources of resilience' begin to disappear and what caused this?",
+          "What specific events does Kaldellis identify as causing the empire's decline prior to its final collapse in 1453?"
+        ]
+      },
+      "correctness": {
+        "score": 0.5714285714285714,
+        "precision": 0.8,
+        "recall": 0.4444444444444444,
+        "tp": 8,
+        "fp": 2,
+        "fn": 10
+      },
+      "tokens_total": 25654,
+      "latency_s": 20.651,
+      "dollar_cost_estimate": 0.0040960499999999995,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does Terence Tao say about using AI to solve hard math problems?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Terence Tao says that AI can already do a non\u2011trivial share of the work that goes into solving hard mathematics \u2013 roughly 30\u201140\u202f% of the routine computations, coding, and checking of cases \u2013 and that it can be a useful \u201cgap\u2011filler\u201d for tasks like writing Python code or enumerating many standard techniques for a problem.  However, he stresses several important limits.  AI systems still struggle to recognise when they have taken a wrong turn and can produce proofs that look superficially flawless but are actually nonsense, because the language\u2011model training rewards text that *looks* correct rather than text that is mathematically valid.  For this reason, long\u2011form proofs still need human grading, and AI performs much better on problems with a concrete numerical answer (e.g., math\u2011olympiad style questions) than on open\u2011ended proof\u2011writing tasks.  Tao envisions future collaborations where a human and an AI converse back\u2011and\u2011forth \u2013 the human proposes ideas, the AI evaluates or suggests alternatives, and the human steers the discussion \u2013 but he notes that the current AI tools cannot replace the deep insight, error\u2011checking, and creative conjecturing that mathematicians bring.\n\nThese points come from several parts of the interview: Tao\u2019s estimate of a 30\u201140\u202f% capability and the coding example (chunk\u202f0122), his description of AI\u2011generated proofs that look correct but may be wrong (chunk\u202f0114), his comments on AI\u2011math competitions and the difficulty of grading long\u2011form proofs (chunk\u202f0112), his vision of a collaborative \u201cconversation\u201d with AI while solving a known problem (chunk\u202f0118), and his comparison of current AI systems like DeepMind\u2019s AlphaProof, which handle high\u2011school\u2011level formal proofs but not graduate\u2011level problems (chunk\u202f0109).",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 5,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 0.6875,
+        "claims": [
+          {
+            "claim": "Terence Tao says that AI can already do a non-trivial share of the work that goes into solving hard mathematics \u2013 roughly 30-40% of the routine computations, coding, and checking of cases.",
+            "supported": true
+          },
+          {
+            "claim": "Tao says that AI can be a useful 'gap-filler' for tasks like writing Python code.",
+            "supported": true
+          },
+          {
+            "claim": "Tao says that AI can be a useful 'gap-filler' for tasks like enumerating many standard techniques for a problem.",
+            "supported": true
+          },
+          {
+            "claim": "AI systems still struggle to recognise when they have taken a wrong turn.",
+            "supported": true
+          },
+          {
+            "claim": "AI systems can produce proofs that look superficially flawless but are actually nonsense.",
+            "supported": true
+          },
+          {
+            "claim": "The language-model training rewards text that *looks* correct rather than text that is mathematically valid.",
+            "supported": true
+          },
+          {
+            "claim": "Long-form proofs still need human grading.",
+            "supported": true
+          },
+          {
+            "claim": "AI performs much better on problems with a concrete numerical answer (e.g., math-olympiad style questions) than on open-ended proof-writing tasks.",
+            "supported": true
+          },
+          {
+            "claim": "Tao envisions future collaborations where a human and an AI converse back-and-forth.",
+            "supported": true
+          },
+          {
+            "claim": "In this vision, the human proposes ideas, the AI evaluates or suggests alternatives, and the human steers the discussion.",
+            "supported": true
+          },
+          {
+            "claim": "Current AI tools cannot replace the deep insight, error-checking, and creative conjecturing that mathematicians bring.",
+            "supported": true
+          },
+          {
+            "claim": "Tao\u2019s estimate of a 30-40% capability and the coding example come from chunk 0122.",
+            "supported": false
+          },
+          {
+            "claim": "His description of AI-generated proofs that look correct but may be wrong comes from chunk 0114.",
+            "supported": false
+          },
+          {
+            "claim": "His comments on AI-math competitions and the difficulty of grading long-form proofs come from chunk 0112.",
+            "supported": false
+          },
+          {
+            "claim": "His vision of a collaborative 'conversation' with AI while solving a known problem comes from chunk 0118.",
+            "supported": false
+          },
+          {
+            "claim": "His comparison of current AI systems like DeepMind\u2019s AlphaProof, which handle high-school-level formal proofs but not graduate-level problems, comes from chunk 0109.",
+            "supported": false
+          }
+        ],
+        "num_claims": 16,
+        "num_supported": 11
+      },
+      "relevancy": {
+        "score": 0.8750279545783997,
+        "generated_questions": [
+          "According to Terence Tao, what percentage of routine mathematical work can AI currently handle, and what specific tasks does it perform well?",
+          "What limitations does Terence Tao identify regarding AI's ability to generate mathematical proofs, particularly concerning error detection?",
+          "How does Terence Tao envision the future collaboration between human mathematicians and AI systems?"
+        ]
+      },
+      "correctness": {
+        "score": 0.7407407407407408,
+        "precision": 0.7692307692307693,
+        "recall": 0.7142857142857143,
+        "tp": 10,
+        "fp": 3,
+        "fn": 4
+      },
+      "tokens_total": 7671,
+      "latency_s": 9.792,
+      "dollar_cost_estimate": 0.00149625,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does Pavel Durov say about Telegram and government censorship?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Pavel Durov says that Telegram will not shut down or censor channels simply because a government asks it to. He stresses that as long as a channel does not call for violence and respects Telegram\u2019s clear rules, it will be left alone \u2013 even if the content is politically sensitive. He told the head of French intelligence that \u201cwe are not going to start engaging in censorship in Europe no matter who is asking us.\u201d\n\nHe also explains that Telegram\u2019s architecture is built to resist government pressure: the service never shares private user messages with any authority, and the data is encrypted and split across multiple jurisdictions so that no single government can access it. When Russia demanded encryption keys in 2017\u20112018, Durov replied that it was impossible and that the only option for the Russian government was to ban Telegram, which they eventually did.\n\nOverall, Durov frames Telegram as a platform that defends freedom of speech worldwide, refuses political censorship, and protects user privacy against government intrusion.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 0.8461538461538461,
+        "claims": [
+          {
+            "claim": "Pavel Durov says that Telegram will not shut down or censor channels simply because a government asks it to.",
+            "supported": true
+          },
+          {
+            "claim": "As long as a channel does not call for violence and respects Telegram\u2019s clear rules, it will be left alone.",
+            "supported": true
+          },
+          {
+            "claim": "Channels will be left alone even if the content is politically sensitive.",
+            "supported": true
+          },
+          {
+            "claim": "He told the head of French intelligence that \u201cwe are not going to start engaging in censorship in Europe no matter who is asking us.\u201d",
+            "supported": true
+          },
+          {
+            "claim": "Telegram\u2019s architecture is built to resist government pressure.",
+            "supported": false
+          },
+          {
+            "claim": "The service never shares private user messages with any authority.",
+            "supported": true
+          },
+          {
+            "claim": "The data is encrypted and split across multiple jurisdictions so that no single government can access it.",
+            "supported": false
+          },
+          {
+            "claim": "When Russia demanded encryption keys in 2017\u20112018, Durov replied that it was impossible.",
+            "supported": true
+          },
+          {
+            "claim": "Durov told the Russian government that the only option was to ban Telegram.",
+            "supported": true
+          },
+          {
+            "claim": "The Russian government eventually banned Telegram.",
+            "supported": true
+          },
+          {
+            "claim": "Durov frames Telegram as a platform that defends freedom of speech worldwide.",
+            "supported": true
+          },
+          {
+            "claim": "Durov frames Telegram as a platform that refuses political censorship.",
+            "supported": true
+          },
+          {
+            "claim": "Durov frames Telegram as a platform that protects user privacy against government intrusion.",
+            "supported": true
+          }
+        ],
+        "num_claims": 13,
+        "num_supported": 11
+      },
+      "relevancy": {
+        "score": 0.7975221077601115,
+        "generated_questions": [
+          "How does Pavel Durov justify Telegram's refusal to censor channels or shut them down at the request of governments?",
+          "What is Telegram's stance on government pressure and user privacy, particularly regarding the sharing of user data?",
+          "How does Telegram's architecture protect the platform and its users from government intrusion?"
+        ]
+      },
+      "correctness": {
+        "score": 0.5333333333333333,
+        "precision": 0.8,
+        "recall": 0.4,
+        "tp": 8,
+        "fp": 2,
+        "fn": 12
+      },
+      "tokens_total": 6434,
+      "latency_s": 11.69,
+      "dollar_cost_estimate": 0.0011716499999999998,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does Jensen Huang say about Nvidia becoming a 4 trillion dollar company?",
+      "type": "clean",
+      "has_answer": false,
+      "answer": "I could not locate any part of the transcript where Jensen Huang discusses Nvidia becoming a $4\u202ftrillion company. The available chunks from episode #494 do not contain a statement on that valuation.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 0,
+      "infra_failure": false,
+      "faithfulness": null,
+      "relevancy": null,
+      "correctness": null,
+      "tokens_total": 8674,
+      "latency_s": 15.313,
+      "dollar_cost_estimate": 0.0013793999999999998,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does Dan Houser say about writing Red Dead Redemption?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Dan Houser explains that writing *Red Dead Redemption* was all about packing the story with tiny, concrete details that make the world feel lived\u2011in. He says the biggest surprise for him was discovering \u201chow much value for storytelling is insanely specific, intricate details in the story, but also visually\u2026 added to the feeling that the world is real.\u201d  He points to things like a horse\u2019s testicles shrinking in cold weather, Arthur\u2019s hair and beard growing in real time, guns getting dirty and performing worse, animal carcasses decomposing, mud physics that leaves realistic footprints, and a therapist\u2011like character (Dr. Friedlander) who lets the player self\u2011reflect.  Those details, he argues, turn narrative moments into systemic, procedural content that lets the game remember you and gives the story a deeper, almost metaphysical layer.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 0.9090909090909091,
+        "claims": [
+          {
+            "claim": "Dan Houser explains that writing Red Dead Redemption was all about packing the story with tiny, concrete details that make the world feel lived-in.",
+            "supported": false
+          },
+          {
+            "claim": "He says the biggest surprise for him was discovering \u201chow much value for storytelling is insanely specific, intricate details in the story, but also visually\u2026 added to the feeling that the world is real.\u201d",
+            "supported": true
+          },
+          {
+            "claim": "He points to a horse\u2019s testicles shrinking in cold weather as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "He points to Arthur\u2019s hair and beard growing in real time as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "He points to guns getting dirty and performing worse as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "He points to animal carcasses decomposing as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "He points to mud physics that leaves realistic footprints as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "He points to a therapist-like character (Dr. Friedlander) who lets the player self-reflect as a specific detail.",
+            "supported": true
+          },
+          {
+            "claim": "Those details turn narrative moments into systemic, procedural content.",
+            "supported": true
+          },
+          {
+            "claim": "Those details let the game remember you.",
+            "supported": true
+          },
+          {
+            "claim": "Those details give the story a deeper, almost metaphysical layer.",
+            "supported": true
+          }
+        ],
+        "num_claims": 11,
+        "num_supported": 10
+      },
+      "relevancy": {
+        "score": 0.8496658603350321,
+        "generated_questions": [
+          "How did Dan Houser approach the writing process for Red Dead Redemption?",
+          "What specific details did Dan Houser cite as examples of the game's world-building?",
+          "According to Dan Houser, what was the most surprising lesson learned while writing Red Dead Redemption?"
+        ]
+      },
+      "correctness": {
+        "score": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "tp": 3,
+        "fp": 9,
+        "fn": 9
+      },
+      "tokens_total": 9197,
+      "latency_s": 12.033,
+      "dollar_cost_estimate": 0.00157575,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does Dave Plummer say about programming and autism?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "Dave Plummer explains that his experience with autism shapes the way he approaches programming and communication. He notes that a sizable portion of the population\u2014perhaps 10\u201120%\u2014lies somewhere on the autism spectrum without it being a diagnosed disorder, and that those people often exhibit traits that can be both strengths and challenges in software work. He describes using explicit \"check\u2011in\" mechanisms (e.g., asking \"you good?\" and waiting for a clear response) because autistic communication can miss subtle cues that neurotypical people read from facial expressions. Plummer argues that if programmers recognize and manage these autistic tendencies, they can leverage the associated skills (such as intense focus and systematic thinking) while mitigating deficits. He wrote a book, *Secrets of the Autistic Millionaire*, as a manual for his children to help them understand and use these traits in their careers and daily life, and he ties this perspective to his own history of building major Windows components (Task Manager, zip compression, Space Cadet Pinball) and his YouTube channel where he shares technical projects.\n\nThese points come from the episode introduction, which highlights his book on autism and his programming background, and from his detailed discussion about autism, where he talks about the spectrum, explicit communication checks, and the potential to harness autistic traits in programming.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 2,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 0.7142857142857143,
+        "claims": [
+          {
+            "claim": "Dave Plummer explains that his experience with autism shapes the way he approaches programming and communication.",
+            "supported": true
+          },
+          {
+            "claim": "He notes that a sizable portion of the population\u2014perhaps 10\u201120%\u2014lies somewhere on the autism spectrum without it being a diagnosed disorder.",
+            "supported": true
+          },
+          {
+            "claim": "He notes that those people often exhibit traits that can be both strengths and challenges in software work.",
+            "supported": false
+          },
+          {
+            "claim": "He describes using explicit 'check\u2011in' mechanisms (e.g., asking 'you good?' and waiting for a clear response) because autistic communication can miss subtle cues that neurotypical people read from facial expressions.",
+            "supported": true
+          },
+          {
+            "claim": "Plummer argues that if programmers recognize and manage these autistic tendencies, they can leverage the associated skills (such as intense focus and systematic thinking) while mitigating deficits.",
+            "supported": false
+          },
+          {
+            "claim": "He wrote a book, Secrets of the Autistic Millionaire, as a manual for his children to help them understand and use these traits in their careers and daily life.",
+            "supported": true
+          },
+          {
+            "claim": "He ties this perspective to his own history of building major Windows components (Task Manager, zip compression, Space Cadet Pinball) and his YouTube channel where he shares technical projects.",
+            "supported": true
+          }
+        ],
+        "num_claims": 7,
+        "num_supported": 5
+      },
+      "relevancy": {
+        "score": 0.8813310464223226,
+        "generated_questions": [
+          "How does Dave Plummer's experience with autism influence his approach to programming and communication?",
+          "What specific strategies does Dave Plummer suggest for managing autistic traits in a software development career?",
+          "What motivated Dave Plummer to write *Secrets of the Autistic Millionaire* and how does he view the prevalence of autism in the population?"
+        ]
+      },
+      "correctness": {
+        "score": 0.47058823529411764,
+        "precision": 0.5,
+        "recall": 0.4444444444444444,
+        "tp": 4,
+        "fp": 4,
+        "fn": 5
+      },
+      "tokens_total": 11324,
+      "latency_s": 19.754,
+      "dollar_cost_estimate": 0.0019708499999999997,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What is discussed about T-Rex and dinosaur extinction?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "In the conversation with paleontologist Dave\u202fHone, the host and guest note that the Tyrannosaurus\u202frex was an apex predator, but its success was abruptly halted by the asteroid\u2011impact extinction event. They explain that the extinction was not because dinosaurs (including T\u2011rex) were already in a terminal decline \u2013 the evidence shows they were thriving right up to the impact and would likely have continued to dominate if the asteroid hadn\u2019t struck. The discussion also touches on the broader consequences of that extinction: it opened ecological space for mammals and birds, and without it human evolution would be highly improbable, because dinosaurs would have continued to occupy most large\u2011animal niches.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 3,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "In the conversation with paleontologist Dave Hone, the host and guest note that the Tyrannosaurus rex was an apex predator.",
+            "supported": true
+          },
+          {
+            "claim": "Its success was abruptly halted by the asteroid-impact extinction event.",
+            "supported": true
+          },
+          {
+            "claim": "The extinction was not because dinosaurs (including T-rex) were already in a terminal decline.",
+            "supported": true
+          },
+          {
+            "claim": "The evidence shows they were thriving right up to the impact.",
+            "supported": true
+          },
+          {
+            "claim": "They would likely have continued to dominate if the asteroid hadn't struck.",
+            "supported": true
+          },
+          {
+            "claim": "The discussion also touches on the broader consequences of that extinction: it opened ecological space for mammals and birds.",
+            "supported": true
+          },
+          {
+            "claim": "Without it human evolution would be highly improbable, because dinosaurs would have continued to occupy most large-animal niches.",
+            "supported": true
+          }
+        ],
+        "num_claims": 7,
+        "num_supported": 7
+      },
+      "relevancy": {
+        "score": 0.7354146838188171,
+        "generated_questions": [
+          "What points did Dave Hone make regarding the status of T-rex and the cause of its extinction?",
+          "Were dinosaurs already in decline before the asteroid impact, and what were the long-term ecological results of their extinction?",
+          "How does the discussion explain the likelihood of human evolution if the asteroid had not struck?"
+        ]
+      },
+      "correctness": {
+        "score": 0.33333333333333337,
+        "precision": 0.8333333333333334,
+        "recall": 0.20833333333333334,
+        "tp": 5,
+        "fp": 1,
+        "fn": 19
+      },
+      "tokens_total": 3908,
+      "latency_s": 5.098,
+      "dollar_cost_estimate": 0.00074415,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "What does the conversation say about nuclear fusion and plasma confinement?",
+      "type": "clean",
+      "has_answer": true,
+      "answer": "In the episode the host and guest explain that nuclear fusion works by forcing very light isotopes (like hydrogen) to combine at extremely high temperatures (hundreds of millions of degrees) so that their nuclei can overcome their natural electromagnetic repulsion.  Unlike fission, which can occur at room temperature, fusion requires both a huge amount of heat and a way to keep the hot plasma together long enough for reactions to happen.  The conversation describes two broad families of confinement:\n\n* **Gravitational confinement** \u2013 the Sun\u2019s own mass pulls the fuel inward, providing the pressure needed for fusion (the guest calls this \u201cgravitational confinement\u201d).\n* **Magnetic confinement** \u2013 on Earth we must create artificial fields.  The most common approach is the tokamak, a donut\u2011shaped magnetic bottle that holds the plasma stable.  The guest also discusses alternative magnetic schemes such as field\u2011reversed configurations (FRC) and pulsed magneto\u2011inertial fusion, where a magnetic field is rapidly increased to compress and heat the plasma.\n\nA key technical concept introduced is **plasma beta**, the ratio of plasma pressure (particle pressure) to magnetic pressure.  A beta near\u202f1 means the plasma pressure is comparable to the magnetic field\u2019s confining pressure, which can make the plasma \u201cunstable\u201d in many designs.  Tokamaks tend to keep beta low for stability, while FRCs operate at high beta and suffer from tilt\u2011type instabilities because there is no solid structure inside the million\u2011degree plasma to hold it in place.\n\nThe guest also notes that the magnetic pressure can be used to compress the plasma (the \u201cbeta advantage\u201d), raising temperature and density quickly enough for fusion to occur, and that pulsed systems can achieve this compression in micro\u2011 to millisecond bursts.\n\nOverall, the conversation paints fusion as a clean, inherently safe energy source\u2014if the plasma can be confined long enough\u2014while emphasizing that the central engineering challenge is creating and maintaining a stable, high\u2011beta plasma using magnetic fields.",
+      "mechanically_grounded": true,
+      "all_citations_verified": false,
+      "num_citations": 6,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 0.2777777777777778,
+        "claims": [
+          {
+            "claim": "Nuclear fusion works by forcing very light isotopes (like hydrogen) to combine at extremely high temperatures (hundreds of millions of degrees) so that their nuclei can overcome their natural electromagnetic repulsion.",
+            "supported": false
+          },
+          {
+            "claim": "Unlike fission, which can occur at room temperature, fusion requires both a huge amount of heat and a way to keep the hot plasma together long enough for reactions to happen.",
+            "supported": false
+          },
+          {
+            "claim": "The conversation describes two broad families of confinement: Gravitational confinement and Magnetic confinement.",
+            "supported": false
+          },
+          {
+            "claim": "Gravitational confinement involves the Sun\u2019s own mass pulling the fuel inward, providing the pressure needed for fusion (the guest calls this \u201cgravitational confinement\u201d).",
+            "supported": false
+          },
+          {
+            "claim": "Magnetic confinement on Earth requires creating artificial fields.",
+            "supported": false
+          },
+          {
+            "claim": "The most common approach to magnetic confinement is the tokamak, a donut\u2011shaped magnetic bottle that holds the plasma stable.",
+            "supported": true
+          },
+          {
+            "claim": "The guest also discusses alternative magnetic schemes such as field\u2011reversed configurations (FRC) and pulsed magneto\u2011inertial fusion.",
+            "supported": true
+          },
+          {
+            "claim": "In pulsed magneto-inertial fusion, a magnetic field is rapidly increased to compress and heat the plasma.",
+            "supported": false
+          },
+          {
+            "claim": "A key technical concept introduced is plasma beta, the ratio of plasma pressure (particle pressure) to magnetic pressure.",
+            "supported": false
+          },
+          {
+            "claim": "A beta near\u202f1 means the plasma pressure is comparable to the magnetic field\u2019s confining pressure, which can make the plasma \u201cunstable\u201d in many designs.",
+            "supported": false
+          },
+          {
+            "claim": "Tokamaks tend to keep beta low for stability.",
+            "supported": false
+          },
+          {
+            "claim": "FRCs operate at high beta and suffer from tilt\u2011type instabilities because there is no solid structure inside the million\u2011degree plasma to hold it in place.",
+            "supported": false
+          },
+          {
+            "claim": "The magnetic pressure can be used to compress the plasma (the \u201cbeta advantage\u201d), raising temperature and density quickly enough for fusion to occur.",
+            "supported": false
+          },
+          {
+            "claim": "Pulsed systems can achieve compression in micro\u2011 to millisecond bursts.",
+            "supported": false
+          },
+          {
+            "claim": "The conversation paints fusion as a clean, inherently safe energy source.",
+            "supported": true
+          },
+          {
+            "claim": "Fusion is inherently safe because if something goes wrong, the reactor simply stops.",
+            "supported": true
+          },
+          {
+            "claim": "Fusion results in no long-lived radioactive waste.",
+            "supported": true
+          },
+          {
+            "claim": "The central engineering challenge is creating and maintaining a stable, high\u2011beta plasma using magnetic fields.",
+            "supported": false
+          }
+        ],
+        "num_claims": 18,
+        "num_supported": 5
+      },
+      "relevancy": {
+        "score": 0.7326334516207377,
+        "generated_questions": [
+          "How does nuclear fusion work, and what are the main methods used to confine the plasma?",
+          "What is plasma beta in the context of nuclear fusion, and how does it affect the stability of different reactor designs like tokamaks and FRCs?",
+          "What are the key differences between how fusion occurs in the Sun versus how we attempt to achieve it on Earth?"
+        ]
+      },
+      "correctness": {
+        "score": 0.6,
+        "precision": 0.625,
+        "recall": 0.5769230769230769,
+        "tp": 15,
+        "fp": 9,
+        "fn": 11
+      },
+      "tokens_total": 5709,
+      "latency_s": 8.004,
+      "dollar_cost_estimate": 0.0012527999999999999,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "what companies has Lex mentioned recently",
+      "type": "adversarial",
+      "has_answer": true,
+      "answer": "In recent episodes Lex Fridman has referred to several well\u2011known companies.  He discussed Tesla and its robotaxi work, and noted that Alphabet (Google) is an early investor in SpaceX and that Waymo\u2019s autonomous\u2011driving platform is a general\u2011purpose robot.  He also talked about NVIDIA, mentioning that NVIDIA GPUs have already been flown to space and are being used for satellite imaging.\n\nSo the companies mentioned recently include:\n- Tesla\n- SpaceX (via the Google investment reference)\n- Waymo (Alphabet/Google)\n- NVIDIA",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 2,
+      "infra_failure": false,
+      "faithfulness": {
+        "score": 1.0,
+        "claims": [
+          {
+            "claim": "In recent episodes Lex Fridman has referred to several well\u2011known companies.",
+            "supported": true
+          },
+          {
+            "claim": "He discussed Tesla and its robotaxi work.",
+            "supported": true
+          },
+          {
+            "claim": "He noted that Alphabet (Google) is an early investor in SpaceX.",
+            "supported": true
+          },
+          {
+            "claim": "He noted that Waymo\u2019s autonomous\u2011driving platform is a general\u2011purpose robot.",
+            "supported": true
+          },
+          {
+            "claim": "He also talked about NVIDIA.",
+            "supported": true
+          },
+          {
+            "claim": "He mentioned that NVIDIA GPUs have already been flown to space.",
+            "supported": true
+          },
+          {
+            "claim": "He mentioned that NVIDIA GPUs are being used for satellite imaging.",
+            "supported": true
+          },
+          {
+            "claim": "The companies mentioned recently include Tesla.",
+            "supported": true
+          },
+          {
+            "claim": "The companies mentioned recently include SpaceX (via the Google investment reference).",
+            "supported": true
+          },
+          {
+            "claim": "The companies mentioned recently include Waymo (Alphabet/Google).",
+            "supported": true
+          },
+          {
+            "claim": "The companies mentioned recently include NVIDIA.",
+            "supported": true
+          }
+        ],
+        "num_claims": 11,
+        "num_supported": 11
+      },
+      "relevancy": {
+        "score": 0.7829697132110596,
+        "generated_questions": [
+          "Which specific companies has Lex Fridman discussed in his recent podcasts?",
+          "What did Lex Fridman say about companies like Tesla, Google, and NVIDIA in recent episodes?",
+          "Can you list the tech and automotive companies Lex Fridman has referred to lately?"
+        ]
+      },
+      "correctness": null,
+      "tokens_total": 12751,
+      "latency_s": 18.387,
+      "dollar_cost_estimate": 0.0020463,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "what is the best thing that was said in any episode",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "I\u2019m unable to determine a single \"best\" statement from the Lex Fridman Podcast because that judgment is subjective and not something that can be verified from the transcript data.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 0,
+      "infra_failure": false,
+      "faithfulness": null,
+      "relevancy": null,
+      "correctness": null,
+      "tokens_total": 920,
+      "latency_s": 1.224,
+      "dollar_cost_estimate": 0.0001668,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "How do Jensen Huang and Pavel Durov think differently about AI and censorship?",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "I could not find any statements in the available transcript excerpts where Jensen Huang discusses censorship, nor any where Pavel Durov discusses AI. The Jensen Huang episode contains extensive discussion of AI adoption and its impact on jobs, but no mention of censorship. The Pavel Durov episode contains no relevant discussion of AI or censorship. Therefore, there is no evidence in the provided transcript data to compare their views on AI and censorship.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 0,
+      "infra_failure": false,
+      "faithfulness": null,
+      "relevancy": null,
+      "correctness": null,
+      "tokens_total": 9393,
+      "latency_s": 15.769,
+      "dollar_cost_estimate": 0.0015129,
+      "dollar_cost_source": "litellm"
+    },
+    {
+      "query": "xenodochium Byzantine hospice",
+      "type": "adversarial",
+      "has_answer": false,
+      "answer": "I could not find any discussion of xenodochium or Byzantine hospices in the Lex Fridman Podcast transcripts.",
+      "mechanically_grounded": true,
+      "all_citations_verified": true,
+      "num_citations": 0,
+      "infra_failure": false,
+      "faithfulness": null,
+      "relevancy": null,
+      "correctness": null,
+      "tokens_total": 3029,
+      "latency_s": 6.474,
+      "dollar_cost_estimate": 0.00048584999999999996,
+      "dollar_cost_source": "litellm"
+    }
+  ]
+}
